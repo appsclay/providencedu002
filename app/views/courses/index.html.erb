@@ -1,0 +1,65 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Courses</h1>
+
+<br>
+
+<% @courses.each do |course| %>
+
+<div class="well">
+  <div class="well noselect" style="background-color:#efeeee;">
+    <h2 class="noselect">Course Name:&nbsp;<%= course.name %></h2>
+    <div >
+                  <p>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;Duration:&nbsp; <%=course.duration.capitalize%>
+                  </p>
+                
+                  <p>
+                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Starting On: &nbsp; <%=course.batch_starting_on.strftime("%B %-d, %Y")%>
+                  </p>
+    </div>
+    <div class="cboxBody">
+                <h4>Highlights</h4>
+                <%hall=course.highlights.split("*")%>
+                <%hall.each do |h|%>
+                  <p><%=h%></p>
+                <%end%>
+    </div>
+    <div class="cboxBody">
+                <h4>Overview</h4>
+                <%ohall=course.overview.split("*")%>
+                <%ohall.each do |hh|%>
+                  <%h=hh.split("!")%>
+                      <%h.each do |k|%>
+                      <p>&nbsp;&nbsp;<i style="color:#010101;" class="fa fa-circle" aria-hidden="true"></i><%=k%></p>
+                      <%end%>
+                <%end%>
+    </div>
+    <div class="cboxBody">
+                <h4>Course Benifits</h4>
+                <%bhall=course.course_benifits.split("*")%>
+                <%bhall.each do |h|%>
+                  <p><i style="color:#010101;" class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;&nbsp;<%=h%></p>
+                <%end%>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>Corporate Trainers Associated With This Course</h3></div>
+      <div class="panel-body">
+        <% course.corporate_trainers.all.each do |k|%>
+          <ul class="list-group">
+            <li class="list-group-item"><%=k.name%></li>
+          </ul>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="well well-sm">
+    <p><%= link_to 'Show', course %>&nbsp;|&nbsp;
+        <%= link_to 'Edit', edit_course_path(course) %>&nbsp;|&nbsp;
+        <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+</div>
+<%end%>
+<div class="well well-lg"><%= link_to 'New Course', new_course_path %></div>
+</div><!--end div-->

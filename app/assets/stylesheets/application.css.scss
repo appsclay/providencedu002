@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require chosen
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "bootstrap-material-design";
+@import "owl.carousel";
+@import "owl.carousel/owl.theme.green";
+
+#owl-demo .item{
+  margin: 3px;
+}
+#owl-demo .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+#owl-demo2 .item{
+  background: transparent;
+  padding: 30px 0px;
+  margin: 10px;
+  color: transparent;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+}
+.nos{text-decoration: none;}
+.nos:hover{text-decoration: none !important;background-color: transparent;}
+
+#log1{
+	position: fixed;
+	z-index: 100;
+	padding: 12px;
+	height: 60px;
+	background-color: #fff;
+	box-shadow: 5px 5px 12px #595959,-5px -5px 12px #595959;
+	text-align: center;
+	padding-top: 20px;
+	top: 88vh;
+	right: 8px;
+}
+
+#trigger-overlay:hover{background-color:transparent !important;}
+#logo-img:hover{background-color: transparent !important;}
+#homepagesections a:hover{background-color: transparent !important;}
+.asa a:hover{background-color: transparent !important;}
+.learn-btn{color:#ffffff !important;}
+.learn-btn:hover{color:#72d0da !important;}
+
+/*-----------BANNER SECTION CSS----------*/
+.use-btn2{background-color: #72cfd9 !important;color:#ffffff !important;transition:all 0.4s ease !important;}
+	.use-btn2:hover{background-color: #ffffff !important;color:#010101 !important;}
+
+/*---------BANNER SECTION END---------*/	
+
+.fitem{transition: all 0.4s ease;color: #3f6184;font-weight:bold;text-decoration:none;font-size: 14px;}
+
+.footer-nav li a:hover{text-decoration:none; color:#73d0da;background-color: #eeeeee;}
+#ftext a:hover{text-decoration:none; color:rgb(42,223,149);background-color: #eeeeee;}
+
+#ff {
+	
+#ol::-webkit-scrollbar {
+    width: 7px;
+}
+
+#ol::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #009688; 
+    border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px #ef403d; 
+}
+}
+.olol{color: #ffffff !important;transition:all 0.4s ease;}
+.olol:hover{text-decoration: none; font-weight: bold;}
+.chosen-select{border-bottom: 2px solid #009688 !important; box-shadow: none !important;height:40px !important;background-color:#eeeeee; }
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}

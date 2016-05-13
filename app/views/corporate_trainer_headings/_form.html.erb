@@ -1,0 +1,21 @@
+<%= form_for(@corporate_trainer_heading) do |f| %>
+  <% if @corporate_trainer_heading.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@corporate_trainer_heading.errors.count, "error") %> prohibited this corporate_trainer_heading from being saved:</h2>
+
+      <ul>
+      <% @corporate_trainer_heading.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :heading %><br>
+    <%= f.text_field :heading, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

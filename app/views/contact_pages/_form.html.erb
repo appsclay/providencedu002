@@ -1,0 +1,100 @@
+<%= form_for(@contact_page) do |f| %>
+  <% if @contact_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact_page.errors.count, "error") %> prohibited this contact_page from being saved:</h2>
+
+      <ul>
+      <% @contact_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="row">
+ <div class="col-md-1"></div>
+<div class="col-md-4">
+  <div class="field">
+    <h5>Image for Banner</h5>
+    <%= f.label :img %><br>
+    <%= f.file_field :img %>
+  </div>
+  <div class="field">
+    <h5>Banner Image Heading</h5>
+    <%= f.label :img_heading %><br>
+    <%= f.text_field :img_heading %>
+  </div>
+  <div class="field">
+    <h5>Banner Image Sub-Heading</h5>
+    <%= f.label :img_sub_heading %><br>
+    <%= f.text_field :img_sub_heading %>
+  </div>
+  <div class="field">
+    <h5>Anthem Image Heading</h5>
+    <%= f.label :anthem_heading %><br>
+    <%= f.text_field :anthem_heading %>
+  </div>
+  <div class="field">
+    <h5>Anthem Image Sub-Heading</h5>
+    <%= f.label :anthem_sub_heading %><br>
+    <%= f.text_field :anthem_sub_heading %>
+  </div>
+  <br>
+  <h3><u>Course Enquiry</u></h3>
+  <div class="field">
+    <%= f.label :contact_person_name %><br>
+    <%= f.text_field :contact_person_name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_person_email %><br>
+    <%= f.text_field :contact_person_email %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_person_phone %><br>
+    <%= f.text_field :contact_person_phone %>
+  </div>
+  <br>
+  <h3><u>Careers</u></h3>
+  <div class="field">
+    <%= f.label :career_url %><br>
+    <%= f.text_field :career_url %>
+  </div>
+  <div class="field">
+    <%= f.label :career_text %><br>
+    <%= f.text_field :career_text %>
+  </div>
+  <br>
+  <h3><u>Address</u></h3>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <br>
+  <h3><u>Map Longitude and Latitude</u></h3>
+  <div class="field">
+    <%= f.label :map_longitude %><br>
+    <%= f.text_field :map_longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :map_latitude %><br>
+    <%= f.text_field :map_latitude %>
+  </div>
+  <hr>
+  <h5>Heading for bottom if required</h5>
+  <div class="field">
+    <%= f.label :bottom_heading %><br>
+    <%= f.text_field :bottom_heading %>
+  </div>
+  <div class="field">
+    <%= f.label :bottom_subheading %><br>
+    <%= f.text_field :bottom_subheading %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+ </div>
+
+ <div class="col-md-7"><%=image_tag 'exs/ex1.png'%></div>
+ </div> 
+<% end %>
+
+

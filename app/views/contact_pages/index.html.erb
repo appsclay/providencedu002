@@ -1,0 +1,57 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Contact Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Img</th>
+      <th>Img heading</th>
+      <th>Img sub heading</th>
+      <th>Anthem heading</th>
+      <th>Anthem sub heading</th>
+      <th>Contact person name</th>
+      <th>Contact person email</th>
+      <th>Contact person phone</th>
+      <th>Career url</th>
+      <th>Career text</th>
+      <th>Address</th>
+      <th>Map longitude</th>
+      <th>Map latitude</th>
+      <th>Bottom heading</th>
+      <th>Bottom subheading</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contact_pages.each do |contact_page| %>
+      <tr>
+        <td><%=image_tag contact_page.img(:thumb), class: "img-rounded"%></td>
+        <td><%= contact_page.img_heading %></td>
+        <td><%= contact_page.img_sub_heading %></td>
+        <td><%= contact_page.anthem_heading %></td>
+        <td><%= contact_page.anthem_sub_heading %></td>
+        <td><%= contact_page.contact_person_name %></td>
+        <td><%= contact_page.contact_person_email %></td>
+        <td><%= contact_page.contact_person_phone %></td>
+        <td><%= contact_page.career_url %></td>
+        <td><%= contact_page.career_text %></td>
+        <td><%= contact_page.address %></td>
+        <td><%= contact_page.map_longitude %></td>
+        <td><%= contact_page.map_latitude %></td>
+        <td><%= contact_page.bottom_heading %></td>
+        <td><%= contact_page.bottom_subheading %></td>
+        <td><%= link_to 'Show', contact_page %></td>
+        <td><%= link_to 'Edit', edit_contact_page_path(contact_page) %></td>
+        <td><%= link_to 'Destroy', contact_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact page', new_contact_page_path %>
+</div>

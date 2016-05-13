@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  corporate_trainer: 
+  name: MyString
+  duration: MyString
+  batch_starting_on: 2016-05-03
+  fee: MyString
+  highlights: MyText
+
+two:
+  corporate_trainer: 
+  name: MyString
+  duration: MyString
+  batch_starting_on: 2016-05-03
+  fee: MyString
+  highlights: MyText

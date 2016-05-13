@@ -1,0 +1,37 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing About Pages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Img</th>
+      <th>About</th>
+      <th>Vision</th>
+      <th>Mission</th>
+      <th>Extra</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @about_pages.each do |about_page| %>
+      <tr>
+        <td><%= image_tag about_page.img(:thumb) %></td>
+        <td><%= about_page.about %></td>
+        <td><%= about_page.vision %></td>
+        <td><%= about_page.mission %></td>
+        <td><%= about_page.extra %></td>
+        <td><%= link_to 'Show', about_page %></td>
+        <td><%= link_to 'Edit', edit_about_page_path(about_page) %></td>
+        <td><%= link_to 'Destroy', about_page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New About page', new_about_page_path %>
+</div>

@@ -1,0 +1,21 @@
+<%= form_for(@term_page) do |f| %>
+  <% if @term_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@term_page.errors.count, "error") %> prohibited this term_page from being saved:</h2>
+
+      <ul>
+      <% @term_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :script %><br>
+    <%= f.text_area :script %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

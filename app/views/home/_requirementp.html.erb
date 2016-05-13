@@ -1,0 +1,22 @@
+<h4><%=requirement_category.requirement_name%></h4>
+<h6><strong>Roles and Responsibilites</strong><br>
+	<ul style="text-decoration:none">
+		<%requirement_category.role_and_responsibilities.split("*").each do |k|%>
+		<li><%=k%></li>
+		<%end%>
+	</ul>
+</h6>
+<br>
+<h6><strong>What we are Looking for</strong><br>
+	<ul style="text-decoration:none">
+		<%requirement_category.what_we_are_looking_for.split("*").each do |k|%>
+		<li><%=k%></li>
+		<%end%>
+	</ul>
+</h6>
+
+<br>
+<h6><strong>Hr  Email: </strong><br><%=requirement_category.hr_email%></h6>
+<br>
+<h6><strong>Hr  Number: </strong><br><%=requirement_category.hr_number%></h6>
+<br>

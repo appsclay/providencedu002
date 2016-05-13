@@ -1,0 +1,83 @@
+<style type="text/css">.cn{display: none;} </style>
+<!-- banner image -->
+<%=image_tag @career.img(:medium)%>
+
+<!-- career heading -->
+<h1><%=@career.heading.upcase%></h1>
+
+<!-- HIGHLIGHT SECTIONS -->
+
+	<!-- highlight section 1 -->
+		<%=image_tag @career.highlight_img1(:medium)%>
+		<h3><%=@career.highlight_h1%></h3>
+		<p><%=@career.highlight_p1%></p>
+
+	<!-- highlight section 2 -->
+		<%=image_tag @career.highlight_img2(:medium)%>
+		<h3><%=@career.highlight_h2%></h3>
+		<p><%=@career.highlight_p2%></p>
+
+	<!-- highlight section 3 -->
+		<%=image_tag @career.highlight_img3(:medium)%>
+		<h3><%=@career.highlight_h3%></h3>
+		<p><%=@career.highlight_p3%></p>
+
+	<!-- highlight section 4 -->
+		<%=image_tag @career.highlight_img4(:medium)%>
+		<h3><%=@career.highlight_h4%></h3>
+		<p><%=@career.highlight_p4%></p>
+
+<!-- HR HEADING SECTION -->
+	
+	<div class="well" style="text-align:center;background-color: rgba(239,64,61,0.7) !important;height:100px;">
+	<!-- hr heading -->
+		<h2><%=@career.hr_heading%></h2>
+	<!-- hr email -->		
+		<p><%=@career.hr_email%></p>
+	</div>	
+	
+		<hr>
+
+<!-- OPEN POSITIONS SECTION -->
+
+<div id="careers1">
+<%ct = 1%>
+<%@positions.each do |position|%>
+	
+	<%if ct==1%>
+	<div class="panel panel-warning" style="width:70%;margin:0 auto;">
+	<%else%>
+	<div class="panel panel-primary" style="width:70%;margin:0 auto;">
+	<%end%>
+		<div class="panel-heading">
+			<h3>
+				<span class="badge"><%=position.rank%></span>
+				<%=position.position_name%>
+			</h3>
+		</div>
+		<div class="panel-body">
+			<%position.requirement_categories.all.order('rank ASC').each do |requirement|%>
+				<div class="cjd">
+					<h4><a style="cursor: pointer; cursor: hand;"><%=requirement.requirement_name%></a></h4>
+					<div class="jd" style="display:none;"><%=render partial: 'requirementp', locals: {requirement_category: requirement}%></div>			
+				</div>
+			<%end%>
+		</div>
+	</div>
+	<%if ct==2%>
+		<%ct=1%>
+	<%else%>	
+		<%ct=2%>
+	<%end%>
+	<br>
+<%end%>	
+</div>
+<script type="text/javascript">
+	
+	$('.panel-body').hide().slideDown();
+	$(".cjd").on("click", function(){
+    	$(this).children('.jd').toggle(function(){$('.jd').addClass("cn");},function(){$('.jd').removeClass("cn");});
+	});
+
+</script>		
+		<br><br>

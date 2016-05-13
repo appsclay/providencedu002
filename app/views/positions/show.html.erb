@@ -1,0 +1,66 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3><span class="badge"><%=@position.rank%></span><%=@position.position_name %></h3>
+				<%= link_to 'Edit', edit_position_path(@position) %> |
+				<%= link_to 'Back', positions_path %>
+			</div>
+			<div class="panel-body">
+				
+				<br>
+					<h4>All Position Requirements</h4>
+			</div>
+				 <!-- List group -->
+  					<ul class="list-group">		
+						<%=render @position.requirement_categories%>
+					</ul>	
+					<br>
+					
+					<div style="margin-left:10px;">
+					<h4>Form for new Requirement </h4>
+						<%= form_for([@position, @position.requirement_categories.build]) do |f| %>
+						  
+						  <div class="field">
+						    <%= f.label :rank %><br />
+						    <%= f.number_field :rank %>
+						  </div>
+						  
+						  <div class="field">
+						    <%= f.label :requirement_name %><br />
+						    <%= f.text_field :requirement_name %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :role_and_responsibilities %><br />
+						    <%= f.text_area :role_and_responsibilities %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :what_we_are_looking_for %><br />
+						    <%= f.text_area :what_we_are_looking_for %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :hr_email %><br />
+						    <%= f.text_field :hr_email %>
+						  </div>
+						  <div class="field">
+						    <%= f.label :hr_number %><br />
+						    <%= f.text_field :hr_number %>
+						  </div>
+						  <div class="actions">
+						    <%= f.submit %>
+						  </div>
+						<% end %>	
+					</div>
+				<br>
+			
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<br>
+</div>

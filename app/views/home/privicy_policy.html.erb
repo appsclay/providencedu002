@@ -1,0 +1,35 @@
+<div id="policy">
+<%ct = 1%>
+<%@policy_headings.each do |policy_heading|%>
+	
+	<%if ct==1%>
+	<div class="panel panel-success" style="width:70%;margin:0 auto;">
+	<%else%>
+	<div class="panel panel-info" style="width:70%;margin:0 auto;">
+	<%end%>
+		<div class="panel-heading">
+			<h4>
+				<span class="badge"><%=policy_heading.position%></span>
+				<%=policy_heading.heading%>
+			</h4>
+		</div>
+		<div class="panel-body k">
+			<%policy_heading.policy_sub_hedings.all.each do |sub_heading|%>
+				<p><%=sub_heading.sub_heading%></p>
+				<hr>
+			<%end%>
+		</div>
+	</div>
+	<%if ct==2%>
+		<%ct=1%>
+	<%else%>	
+		<%ct=2%>
+	<%end%>
+	<br>
+<%end%>	
+</div>
+<script type="text/javascript">
+	
+	$('.panel-body').hide().slideDown();
+
+</script>

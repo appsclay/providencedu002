@@ -1,0 +1,95 @@
+	<style type="text/css">#ff ul li a{transition:all 0.4s ease;}#ff ul li a:hover{color: #ef403d !important;}
+	
+	</style>
+	<aside id="ff" style="background-color:#fff;width:9%;padding:0;border:1px solid #cdcdcd;position:fixed;padding-right:7px;">
+	<ul  id="ol" style="text-decoration:none;list-style:none;height:100vh;padding-left:0;overflow-y: auto !important;overflow-x: hidden; ">
+		<li><a href="/admin" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-dashboard"></span> Dashboard</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/about_pages" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-cog"></span> About Page</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/teams" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-bed"></span> Teams</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/contact_pages" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-phone-alt"></span> Contact Page</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/policy_hedings" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-briefcase"></span> Privicy Policy</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/term_pages" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-list-alt"></span> T and C</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/carrer_pages" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-star"></span> Careers Page</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li><a href="/positions" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-road"></span> Set Available Positions</h5>				
+			</div>
+		</a></li>
+		<hr>
+		<li>
+			<a  style="text-decoration:none;">
+				<div id="homepage" style="text-align:center;">
+					<h5><span class="glyphicon glyphicon-home"></span> Home Page</h5>				
+				</div>
+			</a>
+			<ul id="homepagesections" style="text-decoration:none;list-style:none;padding-left:4px;background-color:#efeeee;margin-left:4px;">
+				<li style="line-height:1.9em;text-align:right;padding-right:4px;"><a href="<%=banner_sections_path%>">Banner Section</a></li>
+				<li style="line-height:1.9em;text-align:right;padding-right:4px;"><a href="<%=pm_logos_path%>">Placement &amp; Tie-Ups</a></li>
+				<li style="line-height:1.9em;text-align:right;padding-right:4px;"><a href="<%=corporate_trainers_path%>">Corporate Trainers</a></li>
+				<li style="line-height:1.9em;text-align:right;padding-right:4px;"><a href="<%=courses_path%>">Courses</a></li>
+				<li style="line-height:1.9em;text-align:right;padding-right:4px;"><a href="<%=testimonials_path%>">Testimonials</a></li>
+				<li style="line-height:1.9em;text-align:right;padding-right:4px;"><a href="<%=menu_items_path%>">Footer Menu</a></li>
+			</ul>
+		</li>
+		<hr>
+		<li><a href="/learners" style="text-decoration:none;">
+			<div style="text-align:center;">
+				<h5><span class="glyphicon glyphicon-user"></span> Enrollments</h5>				
+			</div>
+		</a></li>
+		<hr>
+		</ul>
+	</aside>
+
+	<%=javascript_tag do%>
+	$('#homepagesections').hide();
+
+		$('#homepage').on('click',function(){
+		 
+		if($(this).attr('data-click-state') == 1) {
+
+			$(this).attr('data-click-state', 0)
+			$('#homepagesections').slideDown();			
+		
+		} else {
+			$(this).attr('data-click-state', 1)			
+			$('#homepagesections').slideUp();			
+		}
+		 
+		});
+	<%end%>

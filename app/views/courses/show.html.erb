@@ -1,0 +1,157 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<a href="<%=courses_path%>" class="nos"><i class="fa fa-long-arrow-left fa-4x" aria-hidden="true"></i></a>
+<h1>Course Name:&nbsp;<%= @course.name %></h1>
+
+<br>
+
+
+
+<div class="well">
+  <div class="well" style="background-color:#efeeee;">
+   
+    <div >
+                  <p>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;Duration:&nbsp; <%=@course.duration.capitalize%>
+                  </p>
+                
+                  <p>
+                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Starting On: &nbsp; <%=@course.batch_starting_on.strftime("%B %-d, %Y")%>
+                  </p>
+    </div>
+    <div class="cboxBody">
+                <h4>Highlights</h4>
+                <%hall=@course.highlights.split("*")%>
+                <%hall.each do |h|%>
+                  <p><%=h%></p>
+                <%end%>
+    </div>
+    <div class="cboxBody">
+                <h4>Overview</h4>
+                <%ohall=@course.overview.split("*")%>
+                <%ohall.each do |hh|%>
+                  <%h=hh.split("!")%>
+                      <%h.each do |k|%>
+                      <p>&nbsp;&nbsp;<i style="color:#010101;" class="fa fa-circle" aria-hidden="true"></i><%=k%></p>
+                      <%end%>
+                <%end%>
+    </div>
+    <h3>Curriculum</h3>
+                <div class="cboxBody"><!-- overview start -->curriculum
+                        
+                        <%ccrs=@course.curriculum.split("*")%>
+                        <%ccrs.each do |hh|%>
+                          <%hh.split("!").each do |k|%>
+                              <p><%=k%></p>
+                          <%end%>
+                          <br><br>
+                        <%end%>
+                </div><!-- overview end -->
+    <div class="cboxBody">
+                <h4>Course Benifits</h4>
+                <%bhall=@course.course_benifits.split("*")%>
+                <%bhall.each do |h|%>
+                  <p><i style="color:#010101;" class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;&nbsp;<%=h%></p>
+                <%end%>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>Corporate Trainers Associated With This Course</h3></div>
+      <div class="panel-body">
+        <% @course.corporate_trainers.all.each do |k|%>
+          <ul class="list-group">
+            <li class="list-group-item"><%=k.name%></li>
+          </ul>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="well well-sm">
+    <p><%= link_to 'Show', @course %>&nbsp;|&nbsp;
+        <%= link_to 'Edit', edit_course_path(@course) %>&nbsp;|&nbsp;
+        <%= link_to 'Destroy', @course, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  </div>
+
+
+<h3>Fee Structure</h3>
+<div class="jumbotron">
+  <div class="panel">
+    <ul class="list-group">
+    <li class="list-group-item">
+    <table class="table table-hover">
+    <tr>
+      <th>Major Category</th>
+      <th>Category</th>
+      <th>Amount</th>
+      <th>Timing</th>
+      <th>Additional tnc</th>
+      
+      <th></th>
+      <th></th>
+    </tr>   
+      <%=render @course.fee_structures%>
+     </li> 
+    </ul> 
+</div>
+   
+
+  </div>
+<br>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+</div><!--end div-->
+
+  <div class="">
+    <%= form_for([@course,@course.fee_structures.build]) do |f| %>  
+
+
+    <div class="form-group">
+      <%= f.label :major_category %><br />
+      
+
+       <select type="text" name="fee_structure[major_category]" id="fee_structure_major_category" class="form-control">
+        <option value="National">National Student</option>
+        <option value="International">International Student</option>
+      </select>
+      
+    </div>
+    <div class="form-group">
+      <%= f.label :category %><br />
+      
+      <select type="text" name="fee_structure[category]" id="fee_structure_category" class="form-control">
+        <option value="Type I">Type I</option>
+        <option value="Type II">Type II</option>
+        <option value="Type III">Type III</option>
+        <option value="Type O">Type O</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <%= f.label :amount %><br />
+      <%= f.text_field :amount ,class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :timing %><br />
+      <%= f.text_field :timing ,class: "form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :additional_tnc %><br />
+      <%= f.text_field :additional_tnc ,class: "form-control"%>
+    </div>
+    <div class="actions">
+      <%= f.submit class: "btn btn-warning" %>
+    </div>
+  <% end %>
+  </div>

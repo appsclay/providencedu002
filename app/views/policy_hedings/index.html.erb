@@ -1,0 +1,28 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;"><p id="notice"><%= notice %></p>
+
+<h1>Listing Policy Hedings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Heading</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @policy_hedings.each do |policy_heding| %>
+      <tr>
+        <td><%= policy_heding.heading %></td>
+        <td><%= link_to 'Show', policy_heding %></td>
+        <td><%= link_to 'Edit', edit_policy_heding_path(policy_heding) %></td>
+        <td><%= link_to 'Destroy', policy_heding, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Policy heding', new_policy_heding_path %>
+</div>

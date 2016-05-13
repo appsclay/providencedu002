@@ -1,0 +1,21 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @testimonial.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @testimonial.content %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= @testimonial.avatar %>
+</p>
+
+<%= link_to 'Edit', edit_testimonial_path(@testimonial) %> |
+<%= link_to 'Back', testimonials_path %>
+</div>

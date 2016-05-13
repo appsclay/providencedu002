@@ -1,0 +1,45 @@
+<%= form_for([@requirement_category.position, @requirement_category]) do |f| %>
+  <% if @requirement_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@requirement_category.errors.count, "error") %> prohibited this requirement_category from being saved:</h2>
+
+      <ul>
+      <% @requirement_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rank %><br />
+    <%= f.number_field :rank %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :requirement_name %><br />
+    <%= f.text_field :requirement_name %>
+  </div>
+  <div class="field">
+    <%= f.label :role_and_responsibilities %><br />
+    <%= f.text_area :role_and_responsibilities %>
+  </div>
+  <div class="field">
+    <%= f.label :what_we_are_looking_for %><br />
+    <%= f.text_area :what_we_are_looking_for %>
+  </div>
+  <div class="field">
+    <%= f.label :hr_email %><br />
+    <%= f.text_field :hr_email %>
+  </div>
+  <div class="field">
+    <%= f.label :hr_number %><br />
+    <%= f.text_field :hr_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

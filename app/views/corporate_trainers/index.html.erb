@@ -1,0 +1,65 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+<h1>Listing Placement &amp; Mentorship  Text</h1>
+<% @corporate_trainer_headings.each do |corporate_trainer_heading| %>
+<div class="well">
+    <div style="padding:8px;">
+      <p><%= corporate_trainer_heading.heading%></p>
+    </div>
+
+    <div style="position:relative;bottom:0;right:0;background-color:#fff;box-shadow:2px 2px 5px grey;line-height:3em;padding:5px;">
+          <%= link_to 'Show', corporate_trainer_heading %> | <%= link_to 'Edit', edit_corporate_trainer_heading_path(corporate_trainer_heading) %> | <%= link_to 'Destroy', corporate_trainer_heading, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+</div>
+
+<%end%>
+<div class="well" style="width:270px !important;">
+  <%= link_to 'New Corporate trainer heading', new_corporate_trainer_heading_path %>
+</div>
+
+<br>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Corporate Trainers</h1>
+
+
+<br>
+
+<% @corporate_trainers.each do |corporate_trainer| %>
+<!-- <div class="row">
+  <div class="col-md-1"></div>  
+  <div class="col-md-10"> -->
+    <div class="well" style="width:auto;float:left;margin-right:10px;">
+      <div style="padding:20px;">
+      <h3 style="color:#010101;"><%= corporate_trainer.name.upcase %></h3>
+      <div><%=image_tag corporate_trainer.img(:medium)%></div>
+      
+      <div style="text-align:center;">
+       <div class="panel" style="display:inline-block;position:relative;top:66%;"><h4><%= corporate_trainer.designation %></h4></div>
+       <p>
+        <strong>Trainer's Brief:</strong>
+        <% corporate_trainer.extra.split("*").each do |k| %>
+          <p><%=k%></p>
+        <%end%>
+      </p>
+        <div class="well">
+          <h3><a href="<%=corporate_trainer.twitter%>"><i class="fa fa-twitter" aria-hidden="true"></i></a></h3>
+          <h3><a href="<%=corporate_trainer.linkedin%>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></h3>
+      
+        </div>
+      </div>
+      </div>
+      <div style="bottom:0;right:0;background-color:#fff;box-shadow:2px 2px 5px grey;line-height:3em;padding:5px;">
+        <%= link_to 'Show', corporate_trainer %> | <%= link_to 'Edit', edit_corporate_trainer_path(corporate_trainer)  %> | <%= link_to 'Destroy', corporate_trainer, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+<!--     </div>
+  </div>
+  
+</div> -->
+</div>
+<% end %>
+<br>
+  
+  <div class="well" style="width:165px !important;">
+    <%= link_to 'New Corporate trainer', new_corporate_trainer_path %>
+  </div>

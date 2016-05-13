@@ -1,0 +1,21 @@
+<%= form_for(@pm_text) do |f| %>
+  <% if @pm_text.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pm_text.errors.count, "error") %> prohibited this pm_text from being saved:</h2>
+
+      <ul>
+      <% @pm_text.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :bottom_text %><br>
+    <%= f.text_area :bottom_text ,class: "form-control"%>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+<% end %>

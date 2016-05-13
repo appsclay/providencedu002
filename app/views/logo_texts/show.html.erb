@@ -1,0 +1,16 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Logo bottom text:</strong>
+  <%= @logo_text.logo_bottom_text %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @logo_text.url %>
+</p>
+
+<%= link_to 'Edit', edit_logo_text_path(@logo_text) %> |
+<%= link_to 'Back', menu_items_path %>
+</div>

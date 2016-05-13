@@ -1,0 +1,47 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3><%=@policy_heding.heading %></h3>
+				<%= link_to 'Edit', edit_policy_heding_path(@policy_heding) %> |
+				<%= link_to 'Back', policy_hedings_path %>
+			</div>
+			<div class="panel-body">
+				
+				<br>
+					<h4>All Sub Headings</h4>
+			</div>
+				 <!-- List group -->
+  					<ul class="list-group">		
+						<%=render @policy_heding.policy_sub_hedings%>
+					</ul>	
+					<br>
+					
+					<div style="margin-left:10px;">
+					<h4>Form for new Sub Heading</h4>
+					<%= form_for([@policy_heding,@policy_heding.policy_sub_hedings.build]) do |f| %>
+  						<h2>Sub Headings </h2>
+						  <div class="field">
+						    <%= f.label :sub_heading %><br>
+						    <%= f.text_field :sub_heading %>
+						  </div>
+
+						  <div class="actions">
+						    <%= f.submit %>
+						  </div>
+						<% end %>
+					</div>
+				<br>
+			
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+<br>
+
+</div>

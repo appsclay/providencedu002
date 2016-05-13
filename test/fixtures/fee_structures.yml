@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_id: 
+  master_type: MyString
+  type: 
+  amount: MyString
+  timing: MyString
+  additional_tnc: MyString
+
+two:
+  course_id: 
+  master_type: MyString
+  type: 
+  amount: MyString
+  timing: MyString
+  additional_tnc: MyString

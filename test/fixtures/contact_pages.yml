@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: 
+  img_heading: MyString
+  img_sub_heading: MyString
+  anthem_heading: MyString
+  anthem_sub_heading: MyString
+  contact_person_name: MyString
+  contact_person_email: MyString
+  contact_person_phone: MyString
+  career_url: MyString
+  career_text: MyString
+  address: MyString
+  map_longitude: MyString
+  map_latitude: MyString
+  bottom_heading: MyString
+  bottom_subheading: MyString
+
+two:
+  img: 
+  img_heading: MyString
+  img_sub_heading: MyString
+  anthem_heading: MyString
+  anthem_sub_heading: MyString
+  contact_person_name: MyString
+  contact_person_email: MyString
+  contact_person_phone: MyString
+  career_url: MyString
+  career_text: MyString
+  address: MyString
+  map_longitude: MyString
+  map_latitude: MyString
+  bottom_heading: MyString
+  bottom_subheading: MyString

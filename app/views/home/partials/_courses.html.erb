@@ -1,0 +1,85 @@
+
+<section class="features-list" id="features">
+
+			<div class="container">
+			<div class="row" style="text-align:center;">
+						<h1 style="font-size:30px;font-family: 'Nunito',sans-serif;display:inline-block;color:#3f6184;border-bottom:4px solid #3C5460;">
+							Courses
+						</h1>
+				</div><br>
+				
+				<div class="row">
+					<%a=1%>
+					<%Course.all.order("position ASC").each do |c|%>
+					<div class="col-md-4">
+
+						<%if a==1%>
+						<div class="cbox even">
+						<%end%>
+						<%if a==2%>
+						<div class="cbox odd">
+						<%end%>
+						<%if a==3%>
+						<div class="cbox todd">
+						<%end%>
+						<%if a==4%>
+						<div class="cbox dodd">
+						<%end%>
+							<%if a==1%>
+								<div class="cboxHeading color1">
+							<%end%>	
+							<%if a==2%>
+								<div class="cboxHeading color2">
+							<%end%>	
+							<%if a==3%>
+								<div class="cboxHeading color3">
+							<%end%>	
+							<%if a==4%>
+								<div class="cboxHeading color4">
+							<%end%>							
+								<h1><%=c.name.capitalize%></h1>
+								<hr>
+								<div >
+									<p>
+										<i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;Duration:&nbsp; <%=c.duration.capitalize%>
+									</p>
+								
+									<p>
+										<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Starting On: &nbsp; <%=c.batch_starting_on.strftime("%B %-d, %Y")%>
+									</p>
+								</div>
+							</div>
+
+							<div class="cboxBody">
+								<%hall=c.course_benifits.split("*")%>
+								<%hall.take(4).each do |h|%>
+									<p><i style="color:#010101;" class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;&nbsp;<%=h%></p>
+								<%end%>
+							</div>
+							<div class="smore">
+								<%if a==1%>
+									<%= link_to 'More Details', c, class: "sm1" %>
+								<%end%>	
+								<%if a==2%>
+									<%= link_to 'More Details', c, class: "sm2" %>
+								<%end%>	
+								<%if a==3%>
+									<%= link_to 'More Details', c, class: "sm3" %>
+								<%end%>	
+								<%if a==4%>
+									<%= link_to 'More Details', c, class: "sm4" %>
+								<%end%>	
+							</div>
+						</div>
+
+					</div>
+
+						<%if a==4%>
+							<%a=1%>
+						<%else%>
+							<%a+=1%>
+						<%end%>		
+					<%end%>
+				</div>
+			</div>
+		</section>

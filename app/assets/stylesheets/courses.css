@@ -1,0 +1,9 @@
+#mcontainer {
+    width:      960px; 
+    background-color: #fff;
+}
+ 
+.brick {
+    width:      300px; 
+    padding:    0px 10px 15px 10px;
+}

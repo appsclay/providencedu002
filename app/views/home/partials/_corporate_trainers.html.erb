@@ -1,0 +1,61 @@
+<section class="screenshots" id="screenshots">
+			<div class="container-fluid">
+				<div class="row" style="text-align:center;">
+					<h1 style="font-family: 'Nunito',sans-serif;display:inline-block;color:#3f6184;border-bottom:2px solid #fff;">
+						<%=CorporateTrainerHeading.last.heading.upcase%>
+					</h1>
+				</div><br>
+				<div class="row">
+					<div id="owl-example" class="grid">
+						<%CorporateTrainer.all.each do |ct|%>
+						<div class="item">
+							<figure style="position:relative;">
+								<img src="<%=ct.img(:medium)%>" alt="<%=ct.name%>" >
+								<h3 class="ctname" ><%=ct.name%></h3>
+								<h4 class="ctdesi" >(<%=ct.designation.upcase%>)</h4>
+								<figcaption>
+								<div class="caption-content">
+									<a href="img/large/01.jpg" class="single_image nos" >
+										<i class="fa fa-question" aria-hidden="true"></i><br>
+										<p>Know More</p>
+									</a>
+								</div>
+								</figcaption>
+							</figure>
+						</div>
+						<%end%>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		
+
+
+
+			
+<!--   <div id="ppad" class="owl-carousel"> -->
+
+<%=javascript_tag do%>
+	$(".youtube-media").on("click", function(e) {
+		var jWindow = $(window).width();
+		if (jWindow <= 768) {
+			return;
+		}
+		$.fancybox({
+			href: this.href,
+			padding: 4,
+			type: "iframe",
+			'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+		});
+		return false;
+	});
+
+});
+
+$(document).ready(function() {
+	$("a.single_image").fancybox({
+		padding: 4,
+	});
+});
+<%end%>	

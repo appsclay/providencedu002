@@ -1,0 +1,41 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @learner.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @learner.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @learner.phone_number %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @learner.course_id %>
+</p>
+
+<p>
+  <strong>Course type:</strong>
+  <%= @learner.course_type %>
+</p>
+
+<p>
+  <strong>Educational status:</strong>
+  <%= @learner.educational_status %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @learner.company_name %>
+</p>
+
+<%= link_to 'Edit', edit_learner_path(@learner) %> |
+<%= link_to 'Back', learners_path %>
+</div>

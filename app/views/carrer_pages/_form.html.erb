@@ -1,0 +1,83 @@
+<div class="well" style="width:50%;margin:0 auto;">
+<%= form_for(@carrer_page) do |f| %>
+  <% if @carrer_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@carrer_page.errors.count, "error") %> prohibited this carrer_page from being saved:</h2>
+
+      <ul>
+      <% @carrer_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :img %><br>
+    <%= f.file_field :img %>
+  </div>
+  <div class="field">
+    <%= f.label :heading %><br>
+    <%= f.text_field :heading %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_img1 %><br>
+    <%= f.file_field :highlight_img1 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_h1 %><br>
+    <%= f.text_field :highlight_h1 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_p1 %><br>
+    <%= f.text_field :highlight_p1 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_img2 %><br>
+    <%= f.file_field :highlight_img2 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_h2 %><br>
+    <%= f.text_field :highlight_h2 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_p2 %><br>
+    <%= f.text_field :highlight_p2 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_img3 %><br>
+    <%= f.file_field :highlight_img3 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_h3 %><br>
+    <%= f.text_field :highlight_h3 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_p3 %><br>
+    <%= f.text_field :highlight_p3 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_img4 %><br>
+    <%= f.file_field :highlight_img4 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_h4 %><br>
+    <%= f.text_field :highlight_h4 %>
+  </div>
+  <div class="field">
+    <%= f.label :highlight_p4 %><br>
+    <%= f.text_field :highlight_p4 %>
+  </div>
+  <div class="field">
+    <%= f.label :hr_heading %><br>
+    <%= f.text_field :hr_heading %>
+  </div>
+  <div class="field">
+    <%= f.label :hr_email %><br>
+    <%= f.text_field :hr_email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>

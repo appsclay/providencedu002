@@ -1,0 +1,36 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Img:</strong>
+  <%= image_tag @corporate_trainer.img(:thumb) %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @corporate_trainer.name %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @corporate_trainer.designation %>
+</p>
+
+<p>
+  <strong>Trainer's Brief:</strong>
+  <% @corporate_trainer.extra.split("*").each do |k| %>
+  	<p><%=k%></p>
+  <%end%>
+</p>
+<p>
+  <strong>Twitter Link:</strong>
+  <%= @corporate_trainer.twitter %>
+</p>
+<p>
+  <strong>Linkedin Link:</strong>
+  <%= @corporate_trainer.linkedin %>
+</p>
+
+<%= link_to 'Edit', edit_corporate_trainer_path(@corporate_trainer) %> |
+<%= link_to 'Back', corporate_trainers_path %>
+</div>

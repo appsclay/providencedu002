@@ -1,0 +1,44 @@
+<%= form_for(@corporate_trainer) do |f| %>
+  <% if @corporate_trainer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@corporate_trainer.errors.count, "error") %> prohibited this corporate_trainer from being saved:</h2>
+
+      <ul>
+      <% @corporate_trainer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <h6>(Image should be 400x300)</h6>
+    <%= f.label :img %><br>
+    <%= f.file_field :img, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :designation %><br>
+    <%= f.text_field :designation, class: "form-control" %>
+  </div>
+
+  <h4>(OPTIONAL)</h4>
+  <div class="form-group">
+    <%= f.label :extra %>Brief Description (split wit '*' only)<br>
+    <%= f.text_field :extra, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :twitter %><br>
+    <%= f.text_field :twitter, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :linkedin %><br>
+    <%= f.text_field :linkedin, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-success"%>
+  </div>
+<% end %>

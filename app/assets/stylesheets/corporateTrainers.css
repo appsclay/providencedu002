@@ -1,0 +1,52 @@
+.headingct{background-color:#fff;text-align:center;border-top:2px solid #3f6184;border-bottom:2px solid #3f6184;}
+
+.pad{border:2px solid #fff;width:260px;height:370px;background-color: #fff;
+	text-align: center;transition:all 0.4s ease;}
+.pad:hover{box-shadow: 4px 4px 10px #fff,-4px -4px 10px #fff;}	
+.pad h5{background-color:#3f6184;padding:3px;color:#fff; }
+#ppad{padding-right:54px;padding-left: 54px;}	
+
+.ad{display: inline-block;}
+
+
+.owl-prev{display: inline !important;background-color: transparent !important;position: absolute !important;
+left:0;top:42%;border:1px solid #fff;transition:all 0.4s ease;border-radius: 0px !important;}
+.owl-prev:hover{box-shadow: 1px 1px 3px #fff,-1px -1px 3px #fff;border-radius: 3px !important;}
+
+.owl-next{display: inline !important;background-color: transparent !important;position: absolute !important;
+right:0;top:42%;border:1px solid #fff;transition:all 0.4s ease;border-radius: 0px !important;}
+.owl-next:hover{box-shadow: 1px 1px 3px #fff,-1px -1px 3px #fff;border-radius: 3px !important;}
+
+
+.ctname{position: absolute;color: #fff;
+	text-shadow:
+   -1px -1px 0 #3f6184,  
+    1px -1px 0 #3f6184,
+    -1px 1px 0 #3f6184,
+     1px 1px 0 #3f6184,-1px -1px 0 #010101,  
+    1px -1px 0 #010101,
+    -1px 1px 0 #010101,
+     1px 1px 0 #010101;
+     font-family: 'Nunito',sans-serif;
+     text-align: center;
+     bottom:10%;
+     left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ctdesi{position: absolute;color: #fff;
+	text-shadow:
+   -1px -1px 0 #3f6184,  
+    1px -1px 0 #3f6184,
+    -1px 1px 0 #3f6184,
+     1px 1px 0 #3f6184;
+     font-family: 'Nunito',sans-serif;
+     text-align: center;
+     bottom:3%;
+     left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}

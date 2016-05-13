@@ -1,0 +1,2 @@
+module CarrerPagesHelper
+end

@@ -1,0 +1,31 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @team.img %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @team.name %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @team.designation %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @team.link %>
+</p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @team.quote %>
+</p>
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">

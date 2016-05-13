@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  policy_heding_id: 
+  sub_heading: MyString
+
+two:
+  policy_heding_id: 
+  sub_heading: MyString

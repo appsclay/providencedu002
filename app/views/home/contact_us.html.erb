@@ -1,0 +1,57 @@
+<%a="text-shadow:-0.5px -0.5px 0 #fff,0.5px -0.5px 0 #fff,-0.5px 0.5px 0 #fff,0.5px 0.5px 0 #fff;"%>
+<!--Contact Us Banner image-->
+  <%=image_tag @contact.img(:medium)%>
+       <!-- image heading --> <h1 style="<%=a%>"><strong><%=@contact.img_heading.upcase%></strong></h1>
+       <!-- image sub-heading --><h4><%=@contact.img_heading%></h4>
+<!-- image end -->
+
+
+                                        <!-- Anthem Heading -->
+                                      <%=@contact.anthem_heading%>
+                                        <!-- Anthem Sub Heading -->  
+                                     <%=@contact.anthem_sub_heading%>
+
+  <!-- Course Inquiry -->                                          
+
+  <%=@contact.contact_person_name%>         
+  <%=@contact.contact_person_email%>
+  <%=@contact.contact_person_phone%>
+
+  <!-- Careers --> 
+    <a href="/<%=@contact.career_url%>">
+      <%=@contact.career_text%>
+    </a>
+
+  <!-- Visit Us -->
+  <%=@contact.address%>
+
+                           <!-- map div -->
+<div id="map" style="width: 100vw;height: 360px;background-color: #CCC;"></div>
+<%=javascript_tag do%>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+          center: {lat: <%= @contact.map_longitude%>, lng: <%= @contact.map_latitude%>},
+          zoom: 14
+        });
+      }
+    <%end%>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
+  <!-- map div end -->      
+
+                              <!-- bottom heading -->
+                       <h3><%=@contact.bottom_heading%></h3>
+                              <!-- bottom subheading -->
+                       <h5><%=@contact.bottom_subheading%></h5>
+
+  
+  <!-- MAIL SECTION  --> 
+  
+  <%=form_tag(action: 'custom') do%>
+    <%=text_field_tag('name',params[:name])%>
+    <%=text_field_tag('mmail',params[:memail])%>
+    <%=text_field_tag('mmessage',params[:mmessage])%>
+    <%=submit_tag('Send Mail')%>
+  <%end%>                      
+  <br>

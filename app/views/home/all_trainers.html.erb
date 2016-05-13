@@ -1,0 +1,42 @@
+<div style="width:80%; height:auto;margin:0 auto !important;">
+<section id="demo">
+
+  
+<% @corporate_trainers.each do |corporate_trainer| %>
+
+  <article class="white-panel"> 
+  	<img src="<%=corporate_trainer.img(:large)%>" alt="<%=corporate_trainer.name%>" >
+	
+	<div >
+		<h4><div class="pull-left"><%=corporate_trainer.name%></div><div class="pull-right"><a href="<%=corporate_trainer.twitter%>"><i class="fa fa-twitter" aria-hidden="true"></i></a>&nbsp;&nbsp;
+        <a href="<%=corporate_trainer.linkedin%>"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div></h4>
+	</div>	
+<hr style="background-color:transparent !important;color:transparent !important;border-color:transparent !important;">
+	<h1 style="text-align:center;">(<strong><%=corporate_trainer.designation%></strong>)</h1>
+	
+	
+	<div><%corporate_trainer.extra.split("*").each do |k|%>
+		<p><%=k%></p>
+	<%end%></div>
+	
+	
+  </article>
+
+<%end%>
+    
+</section>
+</div>
+
+<%=javascript_tag do %>
+
+
+$('#demo').pinterest_grid({
+no_columns: 3,
+padding_x: 10,
+padding_y: 10,
+margin_bottom: 50,
+single_column_breakpoint: 700
+});
+
+
+<%end%>

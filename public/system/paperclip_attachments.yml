@@ -1,0 +1,52 @@
+---
+:AboutPage:
+  :img:
+  - :medium
+  - :thumb
+:BannerSection:
+  :banner_img:
+  - :medium
+  - :thumb
+:CarrerPage:
+  :img:
+  - :medium
+  - :thumb
+  :highlight_img1:
+  - :medium
+  - :thumb
+  :highlight_img2:
+  - :medium
+  - :thumb
+  :highlight_img3:
+  - :medium
+  - :thumb
+  :highlight_img4:
+  - :medium
+  - :thumb
+:ContactPage:
+  :img:
+  - :medium
+  - :thumb
+:CorporateTrainer:
+  :img:
+  - :medium
+  - :thumb
+:Course:
+  :img:
+  - :large
+  - :medium
+  - :thumb
+:PmLogo:
+  :logo:
+  - :large
+  - :medium
+  - :thumb
+:Team:
+  :img:
+  - :medium
+  - :thumb
+:Testimonial:
+  :avatar:
+  - :large
+  - :medium
+  - :thumb

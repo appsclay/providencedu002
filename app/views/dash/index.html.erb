@@ -1,0 +1,47 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+	<div class="jumbotron">
+		<div>
+			<h3 style="color:#009688;">
+				Welcome To..
+			</h3>
+		</div>
+		<div>
+			<h1 >
+				Providencedu.in 
+			</h1>
+		</div>
+		<div>
+			<h3 style="color:#009688;">
+				"Because we need to prepare students for their future, not our past."
+			</h3>
+		</div>
+	</div>
+
+	<div class="panel panel-warning">
+	<%if current_user.admin?%>
+		<div class="panel-heading">
+			USERS
+		</div>
+		<%User.all.each do |user|%>
+		
+			<div class="panel-body">
+
+				<h4><span class="badge">id:<%=user.id%></span>Email: <%=user.email%></h4>
+				
+				<p>Admin: <%=user.admin%></p>
+				<%if user.sign_in_count%>
+				<p>User Signed In "<%=user.sign_in_count%>" Times</p>
+				<%end%>
+				<%if user.current_sign_in_at%>
+				<p>User Current sign in at <%=user.current_sign_in_at.strftime("%B %-d, %Y")%></p>
+				<%end%>
+				<%if user.last_sign_in_at%>
+				<p>User Last sign in at <%=user.last_sign_in_at.strftime("%B %-d, %Y")%></p>	
+				<%end%>
+			</div>
+			<hr>
+
+		<%end%>
+	<%end%>	
+	</div>
+</div>

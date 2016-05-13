@@ -1,0 +1,12 @@
+
+	 <tr>
+    <td><%= fee_structure.major_category %></td>
+    <td><%= fee_structure.category %></td>
+    <td><%= fee_structure.amount %></td>
+    <td><%= fee_structure.timing %></td>
+    <td><%= fee_structure.additional_tnc %></td>
+    
+    <td><%= link_to 'Edit', edit_course_fee_structure_path(fee_structure.course, fee_structure) %></td>
+    <td><%= link_to 'Destroy', [fee_structure.course, fee_structure], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+

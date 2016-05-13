@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Providenceedu.in</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>	
+</head>
+<body>
+<%if controller_name.to_s == "home"%>
+	
+	<%if action_name.to_s=="index"%>
+		<%#do nothing%>
+	<%else%>
+		<%=render 'home/partials/small_header'%>
+	<%end%>	
+<%else%>
+	<%#if controller_name.to_s=="courses" && action_name.to_s=="show"%>
+	<%#else%>
+	<%=render 'dash/dash'%>
+	<%#end%>
+<%end%>
+	<!-- flash section -->
+	<div id="cc" style="width:88%;margin:0 auto;padding:2%;padding-left:5%;position:absolute;left:30%;transform:translate(0,-30%);top:3%;cursor: pointer; cursor: hand;">	
+		<%if notice%>
+	   <p class="notice" style="background-color:#eeeeee;color:black;position:absolute;top:20px;z-index:200;text-align:center;"><%= notice %></p>
+	   <%end%>
+	   <%if alert %>
+	   <p class="alert" style="background-color:#eeeeee;color:black;position:absolute;top:20px;z-index:200;text-align:center;"><%= alert %></p>
+	   	<%end%>
+   	</div>
+
+<%= yield %>
+<%if controller_name.to_s == "home"%>
+	<%=render 'home/partials/footer'%>
+<%end%>
+
+<div class="overlay overlay-boxify">
+			<%=render 'home/partials/overlay_menu'%>
+		</div>
+		
+	<%=javascript_tag do%>
+		
+
+
+		$('#trigger-overlay').on('click',function(){
+		 
+		if($(this).attr('data-click-state') == 1) {
+		$(this).attr('data-click-state', 0)
+		/*Change this to your own property / function - Click State 1*/
+		$('#trigger-overlay').addClass('active');
+		$('div.overlay-boxify').addClass('open');
+		/*Click State 1 finish*/
+		} else {
+		$(this).attr('data-click-state', 1)
+		/*Change this to your own property / function - Click State 2*/
+		$('#trigger-overlay').removeClass('active');
+		$('div.overlay-boxify').removeClass('open');
+		/*Click State 2 finish*/
+		}
+		 
+		});
+
+	<%end%>
+
+
+
+<%if params[:controller].to_s == "home"%>
+	<%#do nothing%>
+<%else%>
+	<%if controller_name.to_s=="courses" && action_name.to_s=="show"%>
+	<%else%>
+	<div id="log1">
+		<%if user_signed_in? %>
+			<p>Hello, <%=current_user.email%> | <%=link_to "Sign_out", destroy_user_session_path,method: 'delete'%></p>
+		<%else%>
+			<p><%=link_to 'Log In', new_user_session_path%></p>
+		<%end%>
+	</div>
+	<%end%>
+<%end%>	
+<%=javascript_tag do%>
+	$('#cc').click(function(){
+		$('#cc').slideUp('slow');
+	});
+<%end%>
+</body>
+</html>

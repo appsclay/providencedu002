@@ -1,0 +1,28 @@
+<div class="asa" style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Banner Sections</h1>
+<% @banner_sections.each do |banner_section| %>
+<div class="row">
+  <div class="col-md-1"></div>  
+  <div class="col-md-10">
+    <div class="well" >
+      <div style="background-image:url(<%=banner_section.banner_img(:medium)%>);height:400px;padding:10px;">
+      <h3 style="color:#fff;position:absolute;top:35%;"><%= banner_section.banner_heading %></h3>
+      <div style="text-align:center;">
+        <a href="<%= banner_section.banner_button_url %>"><div class="btn btn-success btn-lg" style="display:inline-block;position:absolute;top:55%;margin: 0 auto;left:40%;"><%= banner_section.banner_button_text %></div></a>
+      </div>
+      </div>
+      <div style="position:absolute;bottom:0;right:0;background-color:#fff;box-shadow:2px 2px 5px grey;line-height:3em;padding:5px;">
+        <%= link_to 'Show', banner_section %> | <%= link_to 'Edit', edit_banner_section_path(banner_section) %> | <%= link_to 'Destroy', banner_section, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<% end %>
+  
+  <div class="well" style="width:165px !important;">
+    <%= link_to 'New Banner section', new_banner_section_path %>
+  </div>
+</div>

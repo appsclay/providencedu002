@@ -1,0 +1,252 @@
+<div class="contain-courses">
+
+	<div style="color:#3f6184;margin:10px; text-align:center; "> <h1> <i class="fa fa-graduation-cap" aria-hidden="true"></i> &nbsp; Courses</h1></div>
+	<hr style="background-color:#fff;border-bottom:1px solid #fff;">
+
+	<%ct = 1%>
+	<%mct=1%>
+	<%@courses.each do |course|%>
+
+		<%if ct==1%>
+		<div class="row" style="margin-top:16px;">
+		<%end%>
+
+			<div class="col-md-6">
+				<div class="panel panel-danger">
+					<div class="panel-heading panel-hover">
+						<h3><%=course.name.upcase%> &nbsp;<i class="fa fa-chevron-down cc" aria-hidden="true"></i></h3> 
+					</div>
+					<div class="panel-body hide-body">
+						<%#tab start%>					
+						<ul class="nav nav-tabs">
+						  <li class="active1 li-tab"><a data-toggle="tab" href="#menu<%=mct%>">General Info</a></li>
+						  <li class="li-tab"><a data-toggle="tab" href="#menu<%=mct+=1%>">Highlights</a></li>
+						  <li class="li-tab"><a data-toggle="tab" href="#menu<%=mct+=1%>">Curriculum</a></li>
+						  <li class="li-tab"><a data-toggle="tab" href="#menu<%=mct+=1%>">Fee Structure</a></li>
+						  <li class="li-tab"><a data-toggle="tab" href="#menu<%=mct+=1%>">Register</a></li>
+						</ul>
+
+						<div class="tab-content">
+						  <div id="menu<%=mct-4%>" class="tab-pane fade in active">
+						    <h3>General Info</h3>
+						    <div >
+						        <p>
+						          <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;Duration:&nbsp; <%=course.duration.capitalize%>
+						        
+						          <p1 class="pull-right"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Starting On: &nbsp; <%=course.batch_starting_on.strftime("%B %-d, %Y")%></p1>
+						        </p>
+						    </div><!-- general info end -->
+						    <hr>
+						    <h3>Course Benifits</h3><!-- course benifit start -->
+						    <div class="cboxBody">
+			                <%bhall=course.course_benifits.split("*")%>
+			                <%bhall.each do |h|%>
+			                  <p><i style="color:#010101;" class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;&nbsp;<%=h%></p>
+			                <%end%>
+			    			</div><!-- course benifits end -->
+			    			<hr>
+			    			<h3>Overview</h3>
+						    <div class="cboxBody"><!-- overview start -->
+				                
+				                <%ohall=course.overview.split("*")%>
+				                <%ohall.each do |hh|%>
+				                  <%h=hh.split("!")%>
+				                      <%h.each do |k|%>
+				                      <p>&nbsp;&nbsp;<i style="color:#010101;font-size:8px;" class="fa fa-circle" aria-hidden="true"></i><%=k%></p>
+				                      <%end%>
+				                <%end%>
+				    		</div><!-- overview end end-->
+						  </div><!-- first menu end -->
+						  <div id="menu<%=mct-3%>" class="tab-pane fade"><!-- menu 2 start -->
+						    <h3>Highlights</h3><!-- highlights start -->
+						    <div class="cboxBody">
+				                <%hall=course.highlights.split("*")%>
+				                <%hall.each do |h|%>
+				                  <p><%=h%></p>
+				                <%end%>
+				   			 </div><!-- highlights end -->
+
+				   			  <div class="panel panel-default">
+							      <div class="panel-heading" ><h3>Corporate Trainers Associated<br>With This Course</h3></div>
+							      <div class="panel-body">
+							        <% course.corporate_trainers.all.each do |k|%>
+							          <ul class="list-group cth" style="list-style:none !important;">
+							            <li class="list-group-item">
+							            	<a href="/trainers"><div>
+							            		<h5><%=k.name%></h5>								            	
+								            </a></div>	
+							            </li>
+							          </ul>
+							        <%end%>
+							      </div>
+						      </div>
+						  </div><!-- menu 2 end -->
+						  <div id="menu<%=mct-2%>" class="tab-pane fade"><!-- menu 3 start -->
+						    
+				    		<h3>Curriculum</h3>
+				    		<div class="cboxBody"><!-- overview start -->curriculum
+				                
+				                <%ccrs=course.curriculum.split("*")%>
+				                <%ccrs.each do |hh|%>
+				                  <%hh.split("!").each do |k|%>
+				                  		<%i=1%>
+				                  		<%k.split("#").each do |kk|%>
+				                  			<%if i==1%>
+				                  			<p><strong><%=kk%></strong></p>
+				                  			<%else%>
+				                  				<p>&#8594;<%=kk%></p>
+				                  			<%end%>
+				                  			<%i=0%>
+				                  		<%end%>
+				                  <%end%>
+				                 
+				                <%end%>
+				    		</div><!-- overview end -->
+						  </div><!-- menu 3 end -->
+						  <div id="menu<%=mct-1%>" class="tab-pane fade"><!-- menu 4 start -->
+						  <h3>Fee Structure</h3>
+						  	<%fees = course.fee_structures.all%>
+						  	<%fees_m1 = fees.where(major_category: "National")%>
+						  	<%fees_m2 = fees.where(major_category: "International")%>
+
+						  	<div class="panel panel-warning show-fee">
+						  		<div class="panel-heading">
+						  			<h4>For National Students</h4>
+						  		</div>
+						  		<div class="panel-body">
+						  			<%fees_m1.each do |k|%>
+						  				<h5>Structure <%=k.category%></h5>
+						  				<p>Course Fee:&nbsp;<strong>&#8377;&nbsp;<%=number_to_currency(k.amount, unit: "", separator: ",", :precision => 0)%>/-</strong></p>
+
+						  				<p>Course Timing:&nbsp;<%=k.timing%></p>
+						  				<%if !k.additional_tnc.empty?%><p>(<%=k.additional_tnc%>)</p><%end%>
+						  			<%end%>
+						  		</div>
+						  	</div>
+						  	<!-- division -->
+						  	<div class="panel panel-warning show-fee">
+						  		<div class="panel-heading">
+						  			<h4>For Foreign Nationals</h4>
+						  		</div>
+						  		<div class="panel-body">
+						  			<%fees_m2.each do |k|%>
+						  				
+						  				<p>Course Fee:&nbsp;<strong>&#8377;&nbsp;<%=number_to_currency(k.amount, unit: "", separator: ",", :precision => 0)%>/-</strong></p>
+
+						  				<p>Course Timing:&nbsp;<%=k.timing%></p>
+						  				<%if !k.additional_tnc.empty?%><p><%="(#{k.additional_tnc})"%></p><%end%>
+						  			<%end%>
+						  		</div>
+						  	</div>
+						  </div><!-- menu 4 end -->
+						  <div id="menu<%=mct-0%>" class="tab-pane fade"><!-- menu 5 start -->
+						  	<h3>Register for this Course</h3>
+							  	<%= form_for(@learner) do |f| %>
+								  <% if @learner.errors.any? %>
+								    <div id="error_explanation">
+								      <h2><%= pluralize(@learner.errors.count, "error") %> prohibited this learner from being saved:</h2>
+
+								      <ul>
+								      <% @learner.errors.full_messages.each do |message| %>
+								        <li><%= message %></li>
+								      <% end %>
+								      </ul>
+								    </div>
+								  <% end %>
+
+								  <div class="form-group">
+								    
+								    <%= f.text_field :name, class: "form-control",placeholder: "Enter name (Ex: Vinay Kumar)"%>
+								  </div>
+								  <div class="form-group">
+								    
+								    <%= f.text_field :email, class: "form-control",placeholder: "Enter email (Ex: example@gmail.com)"%>
+								  </div>
+								  <div class="form-group">
+								    
+								    <%= f.text_field :phone_number,class: "form-control",placeholder: "Enter Mobile Number ( without '0' or '+91')" %>
+								  </div>
+								  
+								    <%= f.hidden_field :course_id, value: course.id %>
+								 
+								  <div class="form-group">
+								    <%= f.label :course_type %><br>
+								    <select class="form-control" type="text" name="learner[course_type]" id="learner_course_type">
+								    	<%fees.each do |k|%>	
+								    	<option value="<%=k.category%>">Course Fee:&nbsp;<strong>&#8377;&nbsp;<%=number_to_currency(k.amount, unit: "", separator: ",", :precision => 0)%>/-</strong>&nbsp;,&nbsp;Timing:&nbsp;<%=k.timing%></option>
+								    	<%end%>
+								    </select>
+								  </div>
+								  <div class="form-group">
+								    <%= f.label :educational_status %><br>
+								    <select class="form-control" type="text" name="learner[educational_status]" id="learner_educational_status">
+								    	<option value="Graduate">Graduate</option>
+								    	<option value="Under-Grad">Under-Grad</option>
+								    	<option value="Working">Working</option>
+								    </select>
+								  </div>
+								  <div class="form-group">
+								    
+								    <%= f.text_field :company_name, class: "form-control",placeholder: "College/Company Name (Optional)"%>
+								  </div>
+								  <div class="actions">
+								    <%= f.submit value: "Register for this Course",class: "btn btn-primary" %>
+								  </div>
+								<% end %>
+
+						  </div><!-- menu 5 ends -->
+						</div>
+						<%#tab end%>
+					</div>
+				</div>
+			</div>	
+		
+		<%if ct==2%>	
+		</div>
+		<%end%>
+
+		<%if ct==1%><%ct=2%><%else%><%ct=1%><%end%>
+		<%mct+=1%>
+		
+
+	<%end%><!-- main end -->
+
+</div>
+
+
+
+<%=javascript_tag do%>
+	$('.hide-body').hide();
+
+	
+	
+
+
+	$('.panel-hover').on('click',function(){
+		 
+		if($(this).attr('data-click-state') == 1) {
+		$(this).attr('data-click-state', 0)
+		/*Change this to your own property / function - Click State 1*/
+		
+		$(this).siblings('.hide-body').slideDown();
+		$(this).addClass('box-rotate');
+
+
+		
+		
+		/*Click State 1 finish*/
+		} else {
+		$(this).attr('data-click-state', 1)
+		/*Change this to your own property / function - Click State 2*/
+		$(this).siblings('.hide-body').slideUp();
+		$(this).removeClass('box-rotate');
+		/*Click State 2 finish*/
+		}
+		 
+		});
+
+	$('.li-tab').click(function(){
+		$(this).addClass('active1');
+		$(this).siblings().removeClass('active1');
+	});
+<%end%>

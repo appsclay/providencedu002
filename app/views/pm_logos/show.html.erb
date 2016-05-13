@@ -1,0 +1,16 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @pm_logo.position %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= image_tag @pm_logo.logo(:large) %>
+</p>
+
+<%= link_to 'Edit', edit_pm_logo_path(@pm_logo) %> |
+<%= link_to 'Back', pm_logos_path %>
+</div>

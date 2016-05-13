@@ -1,0 +1,64 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+<h1>Listing Placement &amp; Mentorship  Heading Text</h1>
+
+<% PmHeading.all.each do |pm_heading| %>
+<div class="well">
+    <div style="padding:8px;">
+      <p><%= pm_heading.heading%></p>
+    </div>
+
+    <div style="position:relative;bottom:0;right:0;background-color:#fff;box-shadow:2px 2px 5px grey;line-height:3em;padding:5px;">
+          <%= link_to 'Show', pm_heading %> | <%= link_to 'Edit', edit_pm_heading_path(pm_heading) %> | <%= link_to 'Destroy', pm_heading, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+</div>
+
+<%end%>
+<div class="well" style="width:270px !important;">
+ <%= link_to 'New Pm heading', new_pm_heading_path %>
+</div>
+<br>
+<br>
+<div style="background-color: #fff;">
+<h1>Listing Placement &amp; Mentorship  Bottom Text</h1>
+<% @pm_texts.each do |pm_text| %>
+<div class="well">
+    <div style="padding:8px;">
+      <p><%= pm_text.bottom_text %></p>
+    </div>
+
+    <div style="position:relative;bottom:0;right:0;background-color:#fff;box-shadow:2px 2px 5px grey;line-height:3em;padding:5px;">
+          <%= link_to 'Show', pm_text %> | <%= link_to 'Edit', edit_pm_text_path(pm_text) %> | <%= link_to 'Destroy', pm_text, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+</div>
+
+<%end%>
+<div class="well" style="width:270px !important;">
+  <%= link_to 'New Placement & Mentorship Text', new_pm_text_path %>
+</div>
+</div>
+<br>
+
+
+
+
+
+
+<h1>Listing Placement &amp; Mentorship  Logos</h1>
+
+<% @pm_logos.each do |pm_logo| %>
+  <div class="panel" style="text-align:center;">
+    <div style="padding:20px;">
+      <span class="badge"><%= pm_logo.position %></span>&nbsp;&nbsp;&nbsp;
+      <%=image_tag pm_logo.logo(:thumb)%>
+    </div>
+    <div style="position:relative;bottom:0;right:0;background-color:#fff;box-shadow:2px 2px 5px grey;line-height:3em;padding:5px;">
+          <%= link_to 'Show', pm_logo %> | <%= link_to 'Edit', edit_pm_logo_path(pm_logo) %> | <%= link_to 'Destroy', pm_logo, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  </div>
+<%end%>
+
+<div class="well" style="width:280px !important;">
+    <%= link_to 'New Placement & Mentorship logo', new_pm_logo_path %>
+  </div>
+

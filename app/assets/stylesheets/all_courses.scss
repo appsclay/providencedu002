@@ -1,0 +1,96 @@
+.contain-courses{
+	/*background-color: coral;*/
+	width:90vw;
+	height: auto;
+	margin: 0 auto;
+	p {
+	font-family: 'Nunito',sans-serif;}
+	h1{
+	font-family: 'Nunito',sans-serif;}
+	h2{
+	font-family: 'Nunito',sans-serif;}
+	h3{
+	font-family: 'Nunito',sans-serif;}
+	h4
+	{
+	font-family: 'Nunito',sans-serif;}
+	h5{
+	font-family: 'Nunito',sans-serif;}
+	h6{
+	font-family: 'Nunito',sans-serif;}
+}
+
+.contain-courses .panel-danger{
+	
+	-webkit-box-shadow: 3px 3px 8px 3px #010101;
+          box-shadow: 3px 3px 8px 3px #010101;
+}
+
+.contain-courses .panel-danger .panel-heading{
+	background-color: #72cfd9;
+	padding: 1px !important;
+	text-align: center;
+	color:#fff;
+	.cc{color:#fff;
+		 -webkit-transition: all 0.4s ease; 
+          transition: all 0.4s ease;
+          font-size: 18px;
+
+	}
+	.cc:hover{color:#3f6184;cursor: pointer; cursor: hand;}
+}
+
+.contain-courses .panel-danger .panel-body{
+	p {color: #3C5460;}
+	h2 {color: #3C5460;}
+	h3{color: #3C5460;}
+	h4{color: #3C5460;}
+	h5{color: #3C5460;}
+
+
+	.nav-tabs{
+		background-color: transparent !important;
+		
+
+		a{color:#72cfd9 !important;-webkit-transition: all 0.4s ease; 
+          transition: all 0.4s ease;}
+		color:#72cfd9 !important;-webkit-transition: all 0.4s ease; 
+          transition: all 0.4s ease;
+	}
+	.nav-tabs li:hover{border-bottom: 2px solid #3f6184 !important;a{color:#3f6184 !important;}
+		color:#3f6184 !important;}
+}
+
+.active1{border-bottom: 2px solid #3f6184 !important;a{color:#3f6184 !important;}
+		color:#3f6184 !important;}
+
+.box-rotate{
+	i{-webkit-transform: rotate(180deg);  
+      -ms-transform: rotate(180deg); 
+          transform: rotate(180deg);color:#3f6184 !important;}
+          background-color:#fff !important;  -webkit-transition: all 0.4s ease; 
+          transition: all 0.4s ease;
+          color:#3f6184 !important;
+          border-bottom:2px solid #3f6184 !important;}
+
+.cth{
+	li{transition: all 0.4s ease;}
+	li a{transition: all 0.4s ease;}
+	li:hover{background-color: #efefef !important;}
+	li a:hover{background-color: #efefef !important;text-decoration: none;}
+}          
+
+.show-fee{
+	padding: 0 !important;
+	.panel-heading{
+		background-color: #3f6184 !important;
+		h4{color: #fff !important;}
+	}
+	.panel-body{
+		h5{text-align: center;border-top:2px solid #72cfd9 !important;border-bottom:2px solid #72cfd9 !important;padding-top: 12px !important;padding-bottom: 12px !important;}
+		p{-webkit-transition: all 0.4s ease; 
+          transition: all 0.4s ease;text-align: center;}
+        p:hover{background-color: #efefef !important;}  
+	}
+
+}

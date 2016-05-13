@@ -1,0 +1,27 @@
+<%tall = Testimonial.all%>
+<section class="showcase" style="background-image:url(<%=asset_path 'showcase.jpg'%>);">
+			<div class="showcase-wrap">
+				<div class="texture-overlay"></div>
+				<div class="container">
+					<div class="row" style="text-align:center;padding:0;">
+						<h1 style="font-family:'Nunito',sans-serif;font-size:40px !important;"><%=tall.first.content.capitalize%></h1>
+					</div>
+					<br><br>
+						<div class="row">
+						<%tall.offset(1).take(3).each do |test|%>
+						<div class="col-md-4">
+							
+							
+							<blockquote class="team-quote">
+								<div class="avatar"><img src="<%=test.avatar(:thumb)%>" alt="<%=test.name%>" class="img-circle" width="84px"></div>
+								<p style="font-family:'Nunito',sans-serif;">"<%=test.content.capitalize%>" <br>-- <%=test.name.capitalize%></p>
+								
+							</blockquote>
+							
+						</div>
+						<%end%>
+						
+					</div>
+				</div>
+			</div>
+		</section>

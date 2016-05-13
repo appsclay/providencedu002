@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: 
+  heading: MyString
+  highlight_img1: 
+  highlight_h1: MyString
+  highlight_p1: MyString
+  highlight_img2: 
+  highlight_h2: MyString
+  highlight_p2: MyString
+  highlight_img3: 
+  highlight_h3: MyString
+  highlight_p3: MyString
+  highlight_img4: 
+  highlight_h4: MyString
+  highlight_p4: MyString
+  hr_heading: MyString
+  hr_email: MyString
+
+two:
+  img: 
+  heading: MyString
+  highlight_img1: 
+  highlight_h1: MyString
+  highlight_p1: MyString
+  highlight_img2: 
+  highlight_h2: MyString
+  highlight_p2: MyString
+  highlight_img3: 
+  highlight_h3: MyString
+  highlight_p3: MyString
+  highlight_img4: 
+  highlight_h4: MyString
+  highlight_p4: MyString
+  hr_heading: MyString
+  hr_email: MyString

@@ -1,0 +1,29 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pm Texts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bottom text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pm_texts.each do |pm_text| %>
+      <tr>
+        <td><%= pm_text.bottom_text %></td>
+        <td><%= link_to 'Show', pm_text %></td>
+        <td><%= link_to 'Edit', edit_pm_text_path(pm_text) %></td>
+        <td><%= link_to 'Destroy', pm_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pm text', new_pm_text_path %>
+</div>

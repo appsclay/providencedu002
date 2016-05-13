@@ -1,0 +1,19 @@
+	<footer style="border-top:2px solid white;" >
+			<div class="container" >
+				<div class="row" >
+					<div class="col-md-5">
+						<h1 class="footer-logo">
+						<img src="<%=asset_path 'logo-dark.png'%>" alt="Footer Logo Blue">
+						</h1>
+						<p id="ftext"><a href="<%=LogoText.last.url%>" ><%=LogoText.last.logo_bottom_text%></a></p>
+					</div>
+					<div class="col-md-7">
+						<ul class="footer-nav">
+							<%MenuItem.all.each do |m|%>
+								<li style="color: #3f6184;font-family: 'Nunito',sans-serif;"><a class="fitem" href="<%=m.url%>" ><%=m.title.upcase%></a></li>
+							<%end%>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>

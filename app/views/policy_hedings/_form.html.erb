@@ -1,0 +1,27 @@
+<%= form_for(@policy_heding) do |f| %>
+  <% if @policy_heding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@policy_heding.errors.count, "error") %> prohibited this policy_heding from being saved:</h2>
+
+      <ul>
+      <% @policy_heding.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h2>Heading of privicy Policy</h2>
+  <div class="field">
+    <%= f.label :position %><br>
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+    <%= f.label :heading %><br>
+    <%= f.text_field :heading %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

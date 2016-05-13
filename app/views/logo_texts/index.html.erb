@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Logo Texts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logo bottom text</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logo_texts.each do |logo_text| %>
+      <tr>
+        <td><%= logo_text.logo_bottom_text %></td>
+        <td><%= logo_text.url %></td>
+        <td><%= link_to 'Show', logo_text %></td>
+        <td><%= link_to 'Edit', edit_logo_text_path(logo_text) %></td>
+        <td><%= link_to 'Destroy', logo_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Logo text', new_logo_text_path %>

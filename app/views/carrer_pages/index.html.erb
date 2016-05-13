@@ -1,0 +1,39 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Carrer Pages</h1>
+
+
+    <div class="well" style="width:80%;margin:0 auto;">
+      <ul class="list-group">
+        <% @carrer_pages.each do |carrer_page| %>
+          
+            <li>Img: <%= image_tag carrer_page.img(:thumb) %></li>
+            <li>Heading: <%= carrer_page.heading %></li>
+            <li>Highlight img1: <%= carrer_page.highlight_img1 %></li>
+            <li>Highlight h1: <%= carrer_page.highlight_h1 %></li>
+            <li>Highlight p1: <%= carrer_page.highlight_p1 %></li>
+            <li>Highlight img2: <%= image_tag carrer_page.highlight_img2(:thumb) %></li>
+            <li>Highlight h2: <%= carrer_page.highlight_h2 %></li>
+            <li>Highlight p2: <%= carrer_page.highlight_p2 %></li>
+            <li>Highlight img3: <%= image_tag carrer_page.highlight_img3(:thumb) %></li>
+            <li>Highlight h3: <%= carrer_page.highlight_h3 %></li>
+            <li>Highlight p3: <%= carrer_page.highlight_p3 %></li>
+            <li>Highlight img4: <%= image_tag carrer_page.highlight_img4(:thumb) %></li>
+            <li>Highlight h4: <%= carrer_page.highlight_h4 %></li>
+            <li>Highlight p4: <%= carrer_page.highlight_p4 %></li>
+            <li>Hr heading: <%= carrer_page.hr_heading %></li>
+            <li>Hr email: <%= carrer_page.hr_email %></li>
+            <br>
+            <p><%= link_to 'Show', carrer_page %>|
+            <%= link_to 'Edit', edit_carrer_page_path(carrer_page) %>|
+            <%= link_to 'Destroy', carrer_page, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          
+        <% end %>
+      </ul>  
+    </div>
+<br>
+
+<%= link_to 'New Carrer page', new_carrer_page_path %>
+<br><br>
+</div>
