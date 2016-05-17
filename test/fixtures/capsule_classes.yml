@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  starting_date: 2016-05-13
+  duration: MyString
+  benifits: MyText
+  guest_lecturer: MyString
+  display: false
+
+two:
+  title: MyString
+  starting_date: 2016-05-13
+  duration: MyString
+  benifits: MyText
+  guest_lecturer: MyString
+  display: false

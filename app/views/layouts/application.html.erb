@@ -14,7 +14,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>	
 </head>
 <body>
-<%if controller_name.to_s == "home"%>
+<%if controller_name.to_s == "home" || controller_name.to_s == "capsule_learners" || controller_name.to_s == "all_courses"%>
 	
 	<%if action_name.to_s=="index"%>
 		<%#do nothing%>
@@ -72,7 +72,7 @@
 
 
 
-<%if params[:controller].to_s == "home"%>
+<%if params[:controller].to_s == "home" || controller_name.to_s == "capsule_learners" || controller_name.to_s == "all_courses"%>
 	<%#do nothing%>
 <%else%>
 	<%if controller_name.to_s=="courses" && action_name.to_s=="show"%>

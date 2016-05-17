@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capsule_class_id: 
+  title: MyString
+  pdf: 
+
+two:
+  capsule_class_id: 
+  title: MyString
+  pdf: 

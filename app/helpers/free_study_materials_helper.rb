@@ -1,0 +1,2 @@
+module FreeStudyMaterialsHelper
+end

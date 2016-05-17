@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511104225) do
+ActiveRecord::Schema.define(version: 20160517082212) do
 
   create_table "about_pages", force: :cascade do |t|
     t.string   "img_file_name"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160511104225) do
     t.text     "extra"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.text     "who_we_are"
+    t.text     "what_we_do"
   end
 
   create_table "banner_sections", force: :cascade do |t|
@@ -38,6 +40,28 @@ ActiveRecord::Schema.define(version: 20160511104225) do
     t.datetime "updated_at",                          null: false
     t.string   "banner_button2_text",     limit: 20
     t.string   "banner_button2_url"
+  end
+
+  create_table "capsule_classes", force: :cascade do |t|
+    t.string   "title"
+    t.date     "starting_date"
+    t.string   "duration"
+    t.text     "benifits"
+    t.string   "guest_lecturer"
+    t.boolean  "display",        default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "capsule_learners", force: :cascade do |t|
+    t.integer  "capsule_class_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.string   "educational_status"
+    t.string   "company_name"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "carrer_pages", force: :cascade do |t|
@@ -151,6 +175,17 @@ ActiveRecord::Schema.define(version: 20160511104225) do
     t.string   "additional_tnc"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "free_study_materials", force: :cascade do |t|
+    t.integer  "capsule_class_id"
+    t.string   "title"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "learners", force: :cascade do |t|

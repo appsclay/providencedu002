@@ -33,12 +33,17 @@ class HomeController < ApplicationController
   end
 
   def all_courses
-    @courses = Course.all.order("position ASC")
+    
     @learner = Learner.new
   end
 
   def all_trainers
     @corporate_trainers = CorporateTrainer.all
+  end
+
+  def free_capsule_classes
+    
+    @capsule_learner = CapsuleLearner.new
   end
 
 end

@@ -5,7 +5,7 @@
 
 	<%ct = 1%>
 	<%mct=1%>
-	<%@courses.each do |course|%>
+	<%Course.all.order("position ASC").each do |course|%>
 
 		<%if ct==1%>
 		<div class="row" style="margin-top:16px;">
@@ -143,14 +143,18 @@
 						  	<h3>Register for this Course</h3>
 							  	<%= form_for(@learner) do |f| %>
 								  <% if @learner.errors.any? %>
-								    <div id="error_explanation">
-								      <h2><%= pluralize(@learner.errors.count, "error") %> prohibited this learner from being saved:</h2>
+								    <div class="panel panel-danger">
+								    <div class="panel-heading" style="background-color:#f44336;color:#fff !important;">
+								      <p><%= pluralize(@learner.errors.count, "error") %> prohibited this learner from being saved:</p>
+								     </div> 
 
-								      <ul>
+								     <div class="panel-body">
+					      				<ul class="list-group">
 								      <% @learner.errors.full_messages.each do |message| %>
-								        <li><%= message %></li>
+								        <li><i style="color:#f44336;" class="fa fa-ellipsis-h" aria-hidden="true"></i>&nbsp;<%= message %></li>
 								      <% end %>
 								      </ul>
+								     </div> 
 								    </div>
 								  <% end %>
 

@@ -1,55 +1,136 @@
 <div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
-<p id="notice"><%= notice %></p>
 
-<%=form_tag learners_path, method: 'get' do%>
+
+
+
+
+<ul class="nav nav-tabs" style="background-color:transparent !important;">
+  <li id = "en1" class="active" ><a style="color:#525252 !important;" data-toggle="tab" href="#home">Course Demo Classes Enrollments</a></li>
+  <li id="en2" ><a style="background-color:#525252 !important;margin-left:10px !important;" data-toggle="tab" href="#menu1">Capsule Classes Enrollments</a></li>
   
-  <select type="text" name="search" id="search" value="<%=params[:search].to_s%>", class="form-control" style="width:70% !important;">
-    <%@courses.each do |k|%>
-      <option value="<%=k.id%>"><%=k.name%></option>
+</ul>
+
+<div class="tab-content">
+
+
+
+  <div id="home" class="tab-pane fade in active">
+   <p id="notice"><%= notice %></p>
+    
+    
+            <br>
+          <%=form_tag learners_path, method: 'get' do%>
+            
+            <select type="text" name="search" id="search" value="<%=params[:search].to_s%>", class="form-control" style="width:70% !important;">
+              <%@courses.each do |k|%>
+                <option value="<%=k.id%>"><%=k.name%></option>
+              <%end%>
+            </select>
+            <%=submit_tag ('Search'),name: nil,class: "btn btn-danger"%>
+          <%end%>
+            <br>
+          <h3>Demo Class Enrollments</h3>          
+          <div class="well">
+          <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr class="warning">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone number</th>
+                <th>Course</th>
+                <th>Course type</th>
+                <th>Educational status</th>
+                <th>Company name</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @learners.each do |learner| %>
+                <tr>
+                  <td><%= learner.name %></td>
+                  <td><%= learner.email %></td>
+                  <td><%= learner.phone_number %></td>
+                  <td><%= @courses.find(learner.course_id).name %></td>
+                  <td><%= learner.course_type %></td>
+                  <td><%= learner.educational_status %></td>
+                  <td><%= learner.company_name %></td>
+                  <td><%= link_to 'Show', learner %></td>
+                  <td><%= link_to 'Edit', edit_learner_path(learner) %></td>
+                  <td><%= link_to 'Destroy', learner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          </div>
+          </div>
+          <br>
+
+          <%if current_user.admin%>
+            <%= link_to 'New Learner', new_learner_path %>
+          <%end%>
+            </div>
+
+
+
+  <div id="menu1" class="tab-pane fade" >
+  <p id="notice"><%= notice %></p>
+      <br>
+     <%=form_tag learners_path, method: 'get' do%>
+            
+            <select type="text" name="search1" id="search1" value="<%=params[:search1].to_s%>", class="form-control" style="">
+              <%@capsule_classes.each do |k|%>
+                <option value="<%=k.id%>"><%=k.title%></option>
+              <%end%>
+            </select>
+            <%=submit_tag ('Search'),name: nil,class: "btn btn-danger"%>
     <%end%>
-  </select>
-  <%=submit_tag ('Search'),name: nil,class: "btn btn-danger"%>
-<%end%>
+      <br>
+    <h3 >Capsule Class Enrollments</h3>
+      <div class="well" style="background-color:#525252 !important;">
+        <div class="table-responsive">
+        <table class="table table-striped" style="color:#fff !important;">
+          <thead>
+            <tr>
+              <th>Capsule class</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone number</th>
+              <th>Educational status</th>
+              <th>Company name</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<h1>Listing Enrollments</h1>
-<div class="well">
-<div class="table-responsive">
-<table class="table table-striped">
-  <thead>
-    <tr class="warning">
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone number</th>
-      <th>Course</th>
-      <th>Course type</th>
-      <th>Educational status</th>
-      <th>Company name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @capsule_learners.each do |capsule_learner| %>
+              <tr>
+                <td><%= capsule_learner.capsule_class_id %></td>
+                <td><%= capsule_learner.name %></td>
+                <td><%= capsule_learner.email %></td>
+                <td><%= capsule_learner.phone_number %></td>
+                <td><%= capsule_learner.educational_status %></td>
+                <td><%= capsule_learner.company_name %></td>
+                <td><%= link_to 'Show', capsule_learner %></td>
+                <%if current_user.admin%>
+                <td><%= link_to 'Edit', edit_capsule_learner_path(capsule_learner) %></td>
+                <td><%= link_to 'Destroy', capsule_learner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <%end%>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+      </div>
+        <br>
+        <%if current_user.admin%>
+            <%= link_to 'New Capsule Learner', new_capsule_learner_path %>
+        <%end%>
+  </div>
+ 
+</div>
 
-  <tbody>
-    <% @learners.each do |learner| %>
-      <tr>
-        <td><%= learner.name %></td>
-        <td><%= learner.email %></td>
-        <td><%= learner.phone_number %></td>
-        <td><%= @courses.find(learner.course_id).name %></td>
-        <td><%= learner.course_type %></td>
-        <td><%= learner.educational_status %></td>
-        <td><%= learner.company_name %></td>
-        <td><%= link_to 'Show', learner %></td>
-        <td><%= link_to 'Edit', edit_learner_path(learner) %></td>
-        <td><%= link_to 'Destroy', learner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-</div>
-<br>
 
-<%if current_user.admin%>
-  <%= link_to 'New Learner', new_learner_path %>
-<%end%>
-</div>
+
+</div><!-- manin div end -->

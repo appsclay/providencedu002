@@ -70,6 +70,6 @@ class AboutPagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def about_page_params
-      params.require(:about_page).permit(:img, :about, :vision, :mission, :extra)
+      params.require(:about_page).permit(:img, :about, :vision, :mission, :extra,:who_we_are,:what_we_do)
     end
 end

@@ -1,12 +1,14 @@
 class LearnersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!, except: [ :create]
   before_action :set_learner, only: [:show, :edit, :update, :destroy]
 
   # GET /learners
   # GET /learners.json
   def index
     @courses = Course.all
+    @capsule_classes = CapsuleClass.all
     @learners = Learner.search(params[:search])
+    @capsule_learners = CapsuleLearner.search_l(params[:search1])
   end
 
   # GET /learners/1
@@ -31,10 +33,10 @@ class LearnersController < ApplicationController
     respond_to do |format|
       if @learner.save
         format.html { redirect_to "/all_courses", notice: 'Successfully registered for this Course' }
-        format.json { render '/all_courses', status: :created, location: @learner }
+        
       else
-        format.html { render :new }
-        format.json { render json: @learner.errors, status: :unprocessable_entity }
+        format.html { render template: "home/all_courses" }
+       
       end
     end
   end
@@ -71,7 +73,7 @@ class LearnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def learner_params
-      params.require(:learner).permit(:name, :email, :phone_number, :course_id, :course_type, :educational_status, :company_name,:search)
+      params.require(:learner).permit(:name, :email, :phone_number, :course_id, :course_type, :educational_status, :company_name,:search,:search1)
     end
     
 end

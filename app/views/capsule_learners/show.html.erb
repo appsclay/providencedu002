@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Capsule class:</strong>
+  <%= @capsule_learner.capsule_class_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @capsule_learner.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @capsule_learner.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @capsule_learner.phone_number %>
+</p>
+
+<p>
+  <strong>Educational status:</strong>
+  <%= @capsule_learner.educational_status %>
+</p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @capsule_learner.company_name %>
+</p>
+
+<%= link_to 'Edit', edit_capsule_learner_path(@capsule_learner) %> |
+<%= link_to 'Back', learners_path %>

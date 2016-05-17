@@ -1,0 +1,63 @@
+<div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong> 
+  <%= @capsule_class.title %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @capsule_class.starting_date %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @capsule_class.duration %>
+</p>
+
+<p>
+  <strong>Benifits:</strong>
+  <%= @capsule_class.benifits %>
+</p>
+
+<p>
+  <strong>Guest lecturer:</strong>
+  <%= @capsule_class.guest_lecturer %>
+</p>
+
+<p>
+  <strong>Display:</strong>
+  <%= @capsule_class.display %>
+</p>
+
+<%= link_to 'Edit', edit_capsule_class_path(@capsule_class) %> |
+<%= link_to 'Back', capsule_classes_path %>
+
+<br><br>
+<!-- List group -->
+            <ul class="list-group">   
+              <%=render @capsule_class.free_study_materials%> 
+            </ul> 
+          <br>
+
+<div class="well">
+    <h3>Form for Uploading Free Study Material for this Class</h3>
+    <%= form_for([@capsule_class,@capsule_class.free_study_materials.build]) do |f| %>
+    
+      <div class="form-group">
+        <%= f.label :title %><br />
+        <%= f.text_field :title , class: "form-control"%>
+      </div>
+      <div class="form-group">
+        <%= f.label :pdf %><br />
+        <%= f.file_field :pdf, class: "form-control" %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "btn btn-info"%>
+      </div>
+    <% end %>
+
+</div>
+
+</div>

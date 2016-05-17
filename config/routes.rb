@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :capsule_learners
+  resources :capsule_classes do
+    resources :free_study_materials
+  end
   resources :learners
   resources :courses do
     resources :fee_structures
@@ -34,6 +38,7 @@ Rails.application.routes.draw do
  
   get '/all_courses', to: 'home#all_courses', as: 'all_courses'
   get '/all_trainers', to: 'home#all_trainers', as: 'all_trainers'
+  get '/free_capsule_classes', to: 'home#free_capsule_classes', as: 'free_capsule_classes'
   devise_for :users, :controllers => { :registrations => "registrations" } 
   resources :about_pages
   

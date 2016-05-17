@@ -10,12 +10,14 @@
 						<%CorporateTrainer.all.each do |ct|%>
 						<div class="item">
 							<figure style="position:relative;">
-								<img src="<%=ct.img(:medium)%>" alt="<%=ct.name%>" >
-								<h3 class="ctname" ><%=ct.name%></h3>
+								<img src="<%=ct.img(:large)%>" alt="<%=ct.name%>" >
+								<div>
+								<h3 class="ctname" style="background-color:rgba(82,82,82,0.6) !important;font-size:24px !important;padding:2px;"><%=ct.name%></h3>
 								<h4 class="ctdesi" >(<%=ct.designation.upcase%>)</h4>
+								</div>
 								<figcaption>
 								<div class="caption-content">
-									<a href="img/large/01.jpg" class="single_image nos" >
+									<a href="/all_trainers" class="single_image nos" >
 										<i class="fa fa-question" aria-hidden="true"></i><br>
 										<p>Know More</p>
 									</a>

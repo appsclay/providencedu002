@@ -11,28 +11,43 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <h4>image size should be atlest 1351x533</h4>
     <%= f.label :img %><br>
-    <%= f.file_field :img %>
+    <%= f.file_field :img,class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :about %><br>
-    <%= f.text_field :about %>
+    <%= f.text_field :about,class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
+  <h5>split with "*"</h5>
+    <%= f.label :who_we_are %><br>
+    <%= f.text_area :who_we_are ,class: "form-control"%>
+  </div>
+  <div class="form-group">
+  <h5>split with "*"</h5>
+    <%= f.label :what_we_do %><br>
+    <%= f.text_area :what_we_do,class: "form-control" %>
+  </div>
+  <div class="form-group">
     <%= f.label :vision %><br>
-    <%= f.text_area :vision %>
+    <%= f.text_area :vision,class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :mission %><br>
-    <%= f.text_area :mission %>
+    <%= f.text_area :mission ,class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group" style="border:1px solid #525252;">
+  <h4>Split with "*" and for further indenting "!"</h4>
+  <p>ex: Abhinav!Appsclay Founder* Riya!Appsclay Co-Founder </p>
+  <p><strong>Resulting:</strong></p>
+  <p>Abhinav&nbsp;&nbsp;<br>(Appsclay Founder)</p>
+  <p>Riya&nbsp;&nbsp;<br>(Appsclay Co-Founder)</p>
     <%= f.label :extra %><br>
-    <%= f.text_area :extra %>
+    <%= f.text_area :extra ,class: "form-control"%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success"%>
   </div>
 <% end %>

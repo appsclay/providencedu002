@@ -1,5 +1,5 @@
 <div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p> 
 
 <h1>Listing About Pages</h1>
 
@@ -8,6 +8,8 @@
     <tr>
       <th>Img</th>
       <th>About</th>
+      <th>Who We Are</th>
+      <th>What We Do</th>
       <th>Vision</th>
       <th>Mission</th>
       <th>Extra</th>
@@ -20,6 +22,8 @@
       <tr>
         <td><%= image_tag about_page.img(:thumb) %></td>
         <td><%= about_page.about %></td>
+        <td><%= about_page.who_we_are %></td>
+        <td><%= about_page.what_we_do %></td>
         <td><%= about_page.vision %></td>
         <td><%= about_page.mission %></td>
         <td><%= about_page.extra %></td>

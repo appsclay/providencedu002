@@ -1,0 +1,102 @@
+#about_cont{
+	padding: 0 !important;
+	margin-top: -30px !important;
+h1{font-family: 'Nunito',sans-serif;}
+h2{font-family: 'Nunito',sans-serif;}
+h3{font-family: 'Nunito',sans-serif;}
+h4{font-family: 'Nunito',sans-serif;}
+h5{font-family: 'Nunito',sans-serif;}
+h6{font-family: 'Nunito',sans-serif;}
+p{font-family: 'Nunito',sans-serif;}
+p1{font-family: 'Nunito',sans-serif;}
+
+
+.about_head_cont{
+	
+	h1{
+		text-shadow:
+   -1px -1px 0 #525252,  
+    1px -1px 0 #525252,
+    -1px 1px 0 #525252,
+     1px 1px 0 #525252;
+     color:#fff;
+     position: absolute;
+     top:30%;
+     left:50%;
+     transform:translate(-50%,-50%);
+     font-size: 40px;
+     letter-spacing: 5px;
+	}
+	div{
+
+		position: absolute;
+		top:46%;
+	     left:50%;
+	     transform:translate(-50%,-50%);	
+		p{
+		color: #fff;
+		letter-spacing: 4px;
+		text-align: center;
+		}
+	}
+	
+}
+
+
+
+}
+
+.who_we_are{
+	text-align: center;
+	color:#1a2a39;
+	border-left:2px solid #335270;
+	border-right:2px solid #335270;
+	padding-left: 14px;
+	padding-right: 14px;
+}
+.what_we_do{
+	
+	color:#1a2a39;
+	border-left:2px solid #335270;
+	border-right:2px solid #335270;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.vision{border-left:2px solid #fff;
+	border-right:2px solid #fff;padding-left: 6px;
+	padding-right: 6px;
+	padding-top:7px;padding-bottom:5px;background-color: #fff !important;
+	h3{text-align: center;
+	}
+	p{text-align: center;}
+
+	-webkit-box-shadow: -1px 1px 6px 6px #ffffff; box-shadow: -1px 1px 6px 6px #ffffff;
+	transition:all 0.4s ease;
+}
+
+.mission{border-left:2px solid #fff;
+	border-right:2px solid #fff;padding-left: 6px;
+	padding-right: 6px;
+	padding-top:7px;padding-bottom:5px;background-color: #fff !important;
+	h3{text-align: center;
+	}
+	p{text-align: center;}
+
+	webkit-box-shadow: -1px 1px 6px 6px #ffffff; box-shadow: -1px 1px 6px 6px #ffffff;
+	transition:all 0.4s ease;
+
+}
+
+.mission:hover{background-color: transparent !important;}
+.vision:hover{background-color: transparent !important;}
+
+.bb{
+	border:2px solid #3f6184 !important;
+}
+
+.br{border: 2px solid #e8837e !important;}
+
+.extra{padding: 5px;text-align: center;transition:all 0.4s ease !important;}
+
+.extra:hover{background-color: #fff !important;}

@@ -1,66 +1,86 @@
+<div id="about_cont" >
+<div class="row" style="background-image:url('<%=@about.img(:medium)%>');width:100vw;background-repeat:none;height:360px;">
+	
+	<div class="about_head_cont">
+		<h1>About Providencedu.in</h1>
+		<div>
+			<p><%=@about.about.capitalize%></p>
+		</div>
+	</div>
+</div>
+
+<div class="row" >
+	<div class="col-md-10 col-md-offset-1">
+		<h3 style="text-align:center;">Who We Are..?</h3>
+		<div class="who_we_are">
+			<% @about.who_we_are.split("*").each do |k| %>
+			    <p><%=k%></p>
+			<%end%>
+		</div>
+	</div>
+</div>
+<hr>
 <div class="row">
-	<%if @about.img%>
-	<div style="background-image:url('<%=@about.img(:medium)%>');width:100vw;height:360px;"></div>
-	<%else%>
-	<div style="background-image:url(<%=asset_path 'about.jpg'%>);width:100vw;height:360px;"></div>
-	<%end%>
+	<div class="col-md-5 col-md-offset-1" >
+		<div class="vision">
+			<h3><u>VISION</u></h3>
+			<p><%=@about.vision%></p>
+		</div>
+	</div>
+	<div class="col-md-5" >
+		<div class="mission">
+			<h3><u>MISSION</u></h3>
+			<p><%=@about.mission%></p>
+		</div>
+	</div>
 </div>
 <hr>
 
-<%ww=@about.about.split("*")%>
-
-<%ww.each do |k|%>
-<div class="row">
-	<div class="col-md-1"></div>
-	<%w=ww.split("#")%>
-	<div class="col-md-10"><h4 style="text-align:center;"><%=w[0]%></h4><br><p><%=w[1]%><p></div>
-	<div class="col-md-1"></div>
-</div>
-<%end%>
-<div class="row">
-	<div class="col-md-1"></div>
-	<div class="col-md-5 well" style="text-align:center;margin-left:-20px;">
-		<u><h3>Vision</h3></u>
-		<p><%=@about.vision%></p>
-	</div>
-	<div class="col-md-5 well" style="text-align:center;margin-left:20px;">
-		<u><h3>Mission</h3></u>
-		<p><%=@about.mission%></p>
-	</div>
-	<div class="col-md-1"></div>
-</div>
-
-
-<br>
-<%aa=@about.extra.split("*")%>
-<div class="row">
-	<%aa.each do |k|%>
-	<div class="panel panel-info">
-		<%a=k.split("#")%>
-		<div class="panel-heading">
-			<h3><%=a[0].upcase%></h3>
-		</div>
-		<div class="panel-body">
-			<p><%=a[1]%></p>
+<div class="row" >
+	<div class="col-md-10 col-md-offset-1">
+		<h3 style="text-align:center;">What We Do</h3>
+		<div class="what_we_do">
+			<% @about.what_we_do.split("*").each do |k| %>
+			    <p><i style="color:#03a9f4;" class="fa fa-caret-right" aria-hidden="true"></i>&nbsp;<%=k%></p>
+			<%end%>
 		</div>
 	</div>
+</div>
+<hr>
+
+<%extra = @about.extra.split("*")%>
+<%c=true%>
+
+<%extra.each do |k|%>
+	
+	<%if c%>
+		<div class="row">
+			<div class="col-md-2"></div>
 	<%end%>
-</div>
 
-<br>
-
-<div class="row content">
-	<h2 style="text-align:center">TEAM</h2>
-	<%@teams.each do |team|%>
 		<div class="col-md-4">
-			  <div class="bg2" style="background: url('<%=team.img(:medium)%>') no-repeat;"> <a class="box overlay" href="<%=team.link%>"> <span class="image-caption"><%=team.name%></span> <span class="desc overlay-desc"><%=team.designation%><br><%=team.quote%><br>
-			      <br>
-			      <span class="see-more">See more...</span></span> </a> 
-		      </div>
-		</div>	
+			<%if c%>
+			<div class="extra bb">
+			<%else%>
+			<div class="extra br">
+			<%end%>
+				<%ex=k.split("!")%>
+				<h4><%=ex[0]%></h4>
+				<p><%=ex[1]%></p>
+			</div>
+		</div>
+
+	<%if !c%>
+		</div>
 	<%end%>
-</div>
+	
+	<%if c%><%c=false%><%else%><%c=true%><%end%>
 
-<br>
+<%end%>
 
 
+	
+
+	
+
+<br><br>

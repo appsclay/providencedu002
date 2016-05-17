@@ -1,0 +1,120 @@
+<div style="color:#3f6184;margin:10px; text-align:center;margin-bottom:16px important; "> 
+	<h1 style="display:inline;border-bottom:1px solid #fff;font-family: 'Nunito',sans-serif;"> 
+		<i class="fa fa-cogs" aria-hidden="true"></i> &nbsp; 
+		Free Capsule Classes
+	</h1>
+</div>
+	
+<br>
+<%CapsuleClass.where(display: true).each do |capsule_class|%>
+	<div class="row class_container" > 
+		<div class="col-md-6 col-md-offset-1">
+			<div class="well">
+				<div class="class_heading">
+					<h2><%=capsule_class.title.upcase%></h2>
+				</div>	
+				<div >
+                  <div class="pull-left">
+	                  <p >
+	                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;Duration:&nbsp; <%= capsule_class.duration %>
+	                  </p>
+                  </div>
+                
+                  <div class="pull-right">
+	                  <p>
+
+	                    <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Starting On: &nbsp; <%=capsule_class.starting_date.strftime("%B %-d, %Y")%>
+	                  </p>
+                  </div>
+                </div>
+				<hr style="border-color:#fff;">
+				<hr>
+				
+                <h3>Benifits</h3>
+                <div class="cboxBody">
+	                <%hall=capsule_class.benifits.split("*")%>
+	                <%hall.take(4).each do |h|%>
+	                  <p><i style="color:#010101;" class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;&nbsp;<%=h%></p>
+	                <%end%>
+                </div>
+
+                <h3>Guest Lecturers for this Class</h3>
+                <div>
+                	 <% capsule_class.guest_lecturer.split(",").each do |kk| %>
+                      <% k = kk.split("*")%>
+                          <p class="sm1"><strong><%=k[0]%></strong>&nbsp;&nbsp;(<%=k[1]%>)</p>
+                      
+                  <%end%>
+                </div>
+
+                <h3> Download Free Study Material for this Class</h3>
+                <div>
+                	<%capsule_class.free_study_materials.all.each do |k|%>
+                		<div>
+                			<div class="pdf_cont">
+                				<h4><%=k.title%></h4>
+                				<a href="<%=k.pdf%>" target="_blank" class=""><i class="fa fa-download" aria-hidden="true"></i>
+                					&nbsp;Download this topic
+                				</a> 
+                			</div>
+                		</div>
+                	<%end%>
+                </div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="well">
+				<h3>Register for this Class</h3>
+				<hr>
+				<%= form_for(@capsule_learner) do |f| %>
+				  <% if @capsule_learner.errors.any? %>
+				    <div class="panel panel-danger" >
+				    	<div class="panel-heading">
+				      		<p><%= pluralize(@capsule_learner.errors.count, "error") %> prohibited this capsule_learner from being saved:</p>
+				      	</div>
+
+				      	<div class="panel-body">
+					      <ul class="list-group">
+					      <% @capsule_learner.errors.full_messages.each do |message| %>
+					        <li class="list-group-item"><i style="color:#f44336;" class="fa fa-ellipsis-h" aria-hidden="true"></i>&nbsp;<%= message %></li>
+					      <% end %>
+					      </ul>
+				      	</div>
+				    </div>
+				  <% end %>
+
+				  
+				    
+				    <%= f.hidden_field :capsule_class_id,value: capsule_class.id%>
+				  
+				  <div class="form-group">
+				    
+				    <%= f.text_field :name,class: "form-control" ,placeholder: "Enter your full name"%>
+				  </div>
+				  <div class="form-group">
+				    <%= f.text_field :email ,class: "form-control",placeholder: "Enter Email (ex: test@example.com)"%>
+				  </div>
+				  <div class="form-group">
+				    <%= f.text_field :phone_number,class: "form-control",placeholder: "Enter Phone Number (10 digit only)" %>
+				  </div>
+				  <div class="form-group">
+				    <%= f.label :educational_status %><br>
+								    <select class="form-control" type="text" name="capsule_learner[educational_status]" id="capsule_learner_educational_status">
+								    	<option value="Graduate">Graduate</option>
+								    	<option value="Under-Grad">Under-Grad</option>
+								    	<option value="Working">Working</option>
+								    </select>
+				  </div>
+				  <div class="form-group">
+				    
+				    <%= f.text_field :company_name ,class: "form-control",placeholder: "Company/College name (Optional)"%>
+				  </div>
+				  <div class="actions">
+				    <%= f.submit class: "btn btn-primary" %>
+				  </div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<%end%>

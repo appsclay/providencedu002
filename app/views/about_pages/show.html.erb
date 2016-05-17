@@ -3,12 +3,26 @@
 
 <p>
   <strong>Img:</strong>
-  <%= @about_page.img %>
+  <%= image_tag @about_page.img(:medium) %>
 </p>
 
 <p>
   <strong>About:</strong>
   <%= @about_page.about %>
+</p>
+
+<p>
+  <strong>Who We Are:</strong>
+  <% @about_page.who_we_are.split("*").each do |k| %>
+    <p><%=k%></p>
+  <%end%>
+</p>
+
+<p>
+  <strong>What We Do:</strong>
+  <% @about_page.what_we_do.split("*").each do |k| %>
+    <p><%=k%></p>
+  <%end%>
 </p>
 
 <p>
@@ -23,7 +37,13 @@
 
 <p>
   <strong>Extra:</strong>
-  <%= @about_page.extra %>
+  <%kk= @about_page.extra.split("*") %>
+  <%kk.each do |k|%>
+    <%h=k.split("!")%>
+      <p><strong><%=h[0]%></strong></p>
+      <p><%=h[1]%></p>
+    
+  <%end%>
 </p>
 
 <%= link_to 'Edit', edit_about_page_path(@about_page) %> |

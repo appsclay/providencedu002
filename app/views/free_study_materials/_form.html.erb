@@ -1,0 +1,25 @@
+<%= form_for([@free_study_material.capsule_class, @free_study_material]) do |f| %>
+  <% if @free_study_material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@free_study_material.errors.count, "error") %> prohibited this free_study_material from being saved:</h2>
+
+      <ul>
+      <% @free_study_material.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :pdf %><br />
+    <%= f.text_field :pdf %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

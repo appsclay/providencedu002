@@ -1,0 +1,8 @@
+<li class="list-group-item">
+<div class="well">
+<h5>Title:&nbsp;<%= free_study_material.title %></h5>
+<h5><a href="<%= free_study_material.pdf%>" target="_blank" class="btn btn-danger">see pdf</a></h5>
+<p><%= link_to 'Edit', edit_capsule_class_free_study_material_path(free_study_material.capsule_class, free_study_material) %>|<%= link_to 'Destroy', [free_study_material.capsule_class, free_study_material], :confirm => 'Are you sure?', :method => :delete %></p>
+</div>
+</li>
+<hr>

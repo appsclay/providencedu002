@@ -1,0 +1,22 @@
+class CapsuleLearner < ActiveRecord::Base
+	validates :email, 
+	uniqueness: true, 
+	presence: true,
+	format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: "please enter a valid email" }
+	
+	validates :name, presence: true, length: {in: 4..90}
+
+	validates :phone_number, 
+	uniqueness: true, 
+	format: {with: /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/, message: "please enter a valid mobile number"}, 
+	length: { is: 10 }
+
+	def self.search_l(search1)
+	  if search1
+	    
+	    where(capsule_class_id: "#{search1}").all
+	  else
+	    all.order("created_at ASC")
+	  end
+	end
+end

@@ -1,0 +1,41 @@
+<%= form_for(@capsule_learner) do |f| %>
+  <% if @capsule_learner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@capsule_learner.errors.count, "error") %> prohibited this capsule_learner from being saved:</h2>
+
+      <ul>
+      <% @capsule_learner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :capsule_class_id %><br>
+    <%= f.number_field :capsule_class_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :educational_status %><br>
+    <%= f.text_field :educational_status %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

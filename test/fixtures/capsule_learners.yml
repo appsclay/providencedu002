@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  capsule_class_id: 1
+  name: MyString
+  email: MyString
+  phone_number: MyString
+  educational_status: MyString
+  company_name: MyString
+
+two:
+  capsule_class_id: 1
+  name: MyString
+  email: MyString
+  phone_number: MyString
+  educational_status: MyString
+  company_name: MyString
