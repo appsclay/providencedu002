@@ -12,6 +12,7 @@ class HomeController < ApplicationController
   end
 
   def privicy_policy
+    @privacy_policy_top_text=PrivacyPolicyTopText.last.content
     @policy_headings = PolicyHeding.all.order('position ASC')
   end
 

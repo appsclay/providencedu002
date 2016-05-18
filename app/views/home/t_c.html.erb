@@ -1,8 +1,22 @@
-<div class="jumbotron" style="width:70%;margin: 0 auto;">
-<h2>Terms and Condition</h2>
-</div>
-<br>
-<!--the last term and condition will be pulled here-->
-<div class="well" style="width:70%;margin: 0 auto;">
-<p><%=@term.script%></p>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="well">
+			<h2 style="color:#ff6666;font-weight:bold;">TERMS OF USE</h2>
+			
+			  <%@term.script.split("*").each do |kk| %>
+			  		<%ct=true%>
+			  		<%kk.split("!").each do |k|%>
+			  			<%if ct%>
+			  				<h5><strong><%=k%></strong></h5>
+			  			<%else%>
+			  				<%k.split("#").each do |chotak|%>
+			  						<h5><%=chotak%></h5>
+			  					<%end%>  				
+			  			<%end%>
+			  			<%ct=false%>
+			  		<%end%>
+			  		<br>
+			  <%end%>
+		</div>
+	</div>
 </div>

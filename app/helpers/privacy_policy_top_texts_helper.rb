@@ -1,0 +1,2 @@
+module PrivacyPolicyTopTextsHelper
+end

@@ -1,57 +1,119 @@
-<%a="text-shadow:-0.5px -0.5px 0 #fff,0.5px -0.5px 0 #fff,-0.5px 0.5px 0 #fff,0.5px 0.5px 0 #fff;"%>
-<!--Contact Us Banner image-->
-  <%=image_tag @contact.img(:medium)%>
-       <!-- image heading --> <h1 style="<%=a%>"><strong><%=@contact.img_heading.upcase%></strong></h1>
-       <!-- image sub-heading --><h4><%=@contact.img_heading%></h4>
-<!-- image end -->
+<section id="contact_us">
+  <div class="row">
+    <div style="background-image: url(<%=@contact.img(:medium)%>);background-repeat:no-repeat;width:100vw !important;height:360px;margin-top:-29.5px;">
+        <div class="about_head_cont">
+        <h1><i style="color:#fff;" class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<%=@contact.img_heading.upcase%></h1>
+        <div style="margin-top:-3%;">
+          <h3 style="color:#fff;background-color:rgba(238,238,300,0.5);"><%=@contact.img_sub_heading%></h3>
+        </div>
+      </div>
+    </div>
+</div>
 
-
-                                        <!-- Anthem Heading -->
-                                      <%=@contact.anthem_heading%>
+<!-- ANTHEM SECTION -->
+<div class="row">
+  <div class="col-md-10 col-md-offset-1" style="background-color:#fff !important;text-align:center !important;">
+                                          <!-- Anthem Heading -->
+                                     <br><h1> <%=@contact.anthem_heading%>  </h1>
                                         <!-- Anthem Sub Heading -->  
-                                     <%=@contact.anthem_sub_heading%>
+                                     <h4 style="color:#3f6184;"><i class="fa fa-quote-left" aria-hidden="true"></i>&nbsp;
+                                      <%=@contact.anthem_sub_heading%>&nbsp;
+                                        <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                    </h4>
+  </div>
+</div>
 
-  <!-- Course Inquiry -->                                          
+<div class="row">
+  <div class="col-md-10 col-md-offset-1" style="background-color:#fff !important;text-align:center !important;">
+    <div class="row">
+      <div class="col-md-4" style="border-right:1px solid #3f6184 !important;">
+        <!-- Course Inquiry -->    
+        <h4 style="color:#72cfd9;background-color:rgba(238,238,300,0.5);">Course Inquiries</h4>
+        <p><%=@contact.contact_person_name%></p>
+        <p><%=@contact.contact_person_email%></p>
+        <p><%=@contact.contact_person_phone%></p>
+      </div>
+      <div class="col-md-4" >
+        <h4 style="color:#72cfd9;background-color:rgba(238,238,300,0.5);">Careers</h4>
+         <!-- Careers --> 
+          <a href="/<%=@contact.career_url%>">
+            <%=@contact.career_text%>
+          </a>
+      </div>
+      <div class="col-md-4" style="border-left:1px solid #3f6184 !important;height:100%;">
+        <h4 style="color:#72cfd9;background-color:rgba(238,238,300,0.5);">Visit Us</h4>
+             <!-- Visit Us -->
+          <%@contact.address.split("*"). each do |k|%>
+            <p><%=k%></p>
+          <%end%>
+          
+      </div>
+    </div>
+  </div>
+</div>
 
-  <%=@contact.contact_person_name%>         
-  <%=@contact.contact_person_email%>
-  <%=@contact.contact_person_phone%>
 
-  <!-- Careers --> 
-    <a href="/<%=@contact.career_url%>">
-      <%=@contact.career_text%>
-    </a>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1" style="background-color:#fff !important;text-align:center !important;">
+                                 <!-- map div -->
+    <div id="map" style="width: 100%;height: 300px;background-color: #CCC;"></div>
+    <%=javascript_tag do%>
+          function initMap() {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+              center: {lat: <%= @contact.map_longitude%>, lng: <%= @contact.map_latitude%>},
+              zoom: 14
+            });
+          }
+        <%end%>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+            async defer></script>
+      <!-- map div end -->      
 
-  <!-- Visit Us -->
-  <%=@contact.address%>
+  </div>
+</div>
 
-                           <!-- map div -->
-<div id="map" style="width: 100vw;height: 360px;background-color: #CCC;"></div>
-<%=javascript_tag do%>
-      function initMap() {
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-          center: {lat: <%= @contact.map_longitude%>, lng: <%= @contact.map_latitude%>},
-          zoom: 14
-        });
-      }
-    <%end%>
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
-        async defer></script>
-  <!-- map div end -->      
+<div class="row">
 
+  <div class="col-md-10 col-md-offset-1" style="background-color:#fff !important;text-align:center !important;">
+                                  <br><br>
                               <!-- bottom heading -->
-                       <h3><%=@contact.bottom_heading%></h3>
+                       <h2><%=@contact.bottom_heading%></h2>
                               <!-- bottom subheading -->
-                       <h5><%=@contact.bottom_subheading%></h5>
+                              <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                       <p style="color:#3f6184;"><%=@contact.bottom_subheading%></p>
+                                </div>
+                              </div>  
+  </div>
+</div>
 
-  
-  <!-- MAIL SECTION  --> 
-  
-  <%=form_tag(action: 'custom') do%>
-    <%=text_field_tag('name',params[:name])%>
-    <%=text_field_tag('mmail',params[:memail])%>
-    <%=text_field_tag('mmessage',params[:mmessage])%>
-    <%=submit_tag('Send Mail')%>
-  <%end%>                      
-  <br>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1" style="background-color:#fff !important;text-align:center !important;">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <br>
+                <h3>Quick Contact</h3>
+                  <!-- MAIL SECTION  --> 
+                
+                <%=form_tag(action: 'custom') do%>
+                  <div class="form-control">
+                    <%=text_field_tag('name',params[:name], class: "form-control", placeholder: "Enter your Name (ex: Tom Harry)")%>
+                  </div>
+                  <div class="form-control">
+                    <%=text_field_tag('mmail',params[:memail], class: "form-control", placeholder: "Enter your Email (ex: somebody@example.com)")%>
+                  </div>
+                  <div class="form-control">
+                    <%=text_field_tag('mmessage',params[:mmessage], class: "form-control ", placeholder: "Enter your message max 500 characters",size: "150px")%>
+                  </div>
+                  <div class="form-action">
+                    <%=submit_tag('Send Mail', class: "btn btn-default") %>
+                  </div>
+                <%end%>                      
+                <br><br><br>
+              </div>
+            </div>    
+  </div>
+</div>
+</section>
+<%a="text-shadow:-0.5px -0.5px 0 #fff,0.5px -0.5px 0 #fff,-0.5px 0.5px 0 #fff,0.5px 0.5px 0 #fff;"%>

@@ -1,8 +1,28 @@
 <div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;"><p id="notice"><%= notice %></p>
 
+<div class="well">
+
+    <% PrivacyPolicyTopText.all.each do |privacy_policy_top_text| %>
+      <div style="border:1px solid #3f6184;">
+        <p><%= privacy_policy_top_text.content %></p>
+        <div class="pull-right">
+          <a href="<%=privacy_policy_top_text%>" class="btn btn-success"><i class="fa fa-binoculars fa-2x" aria-hidden="true"></i></a> &nbsp;&nbsp;
+          <a href="<%=edit_privacy_policy_top_text_path(privacy_policy_top_text)%>" class="btn btn-info"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+          <%= link_to  privacy_policy_top_text, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" do%>
+            <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+          <%end%>
+        </div>
+      </div>
+    <% end %>
+    
+  
+<%= link_to 'New Privacy policy top text', new_privacy_policy_top_text_path %>  
+</div>
+<br>
+<hr>
 <h1>Listing Policy Hedings</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Heading</th>

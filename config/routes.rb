@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :privacy_policy_top_texts
   resources :capsule_learners
   resources :capsule_classes do
     resources :free_study_materials

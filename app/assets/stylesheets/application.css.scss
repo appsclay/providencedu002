@@ -105,3 +105,41 @@
 }
 
 .field_with_errors{width:100% !important;background-color:#F44336 !important;color:#fff !important;}
+
+
+/*===========ABOUT PAGE CSS=============*/
+
+.about_head_cont{
+  
+  h1{
+    text-shadow:
+   -1px -1px 0 #525252,  
+    1px -1px 0 #525252,
+    -1px 1px 0 #525252,
+     1px 1px 0 #525252;
+     color:#fff;
+     position: absolute;
+     top:30%;
+     left:50%;
+     transform:translate(-50%,-50%);
+     font-size: 40px;
+     letter-spacing: 5px;
+     font-family: 'Nunito',sans-serif;
+
+  }
+  div{
+
+    position: absolute;
+    top:46%;
+       left:50%;
+       transform:translate(-50%,-50%);  
+    p{
+    color: #fff;
+    letter-spacing: 4px;
+    text-align: center;
+    }
+  }
+  a{font-family: 'Nunito',sans-serif;}
+}
+
+#clickopen:hover{cursor: pointer; cursor: hand;}

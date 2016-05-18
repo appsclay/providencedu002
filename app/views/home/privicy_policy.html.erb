@@ -1,33 +1,32 @@
-<div id="policy">
-<%ct = 1%>
-<%@policy_headings.each do |policy_heading|%>
-	
-	<%if ct==1%>
-	<div class="panel panel-success" style="width:70%;margin:0 auto;">
-	<%else%>
-	<div class="panel panel-info" style="width:70%;margin:0 auto;">
-	<%end%>
-		<div class="panel-heading">
-			<h4>
-				<span class="badge"><%=policy_heading.position%></span>
-				<%=policy_heading.heading%>
-			</h4>
-		</div>
-		<div class="panel-body k">
-			<%policy_heading.policy_sub_hedings.all.each do |sub_heading|%>
-				<p><%=sub_heading.sub_heading%></p>
-				<hr>
-			<%end%>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading" style="background-color:#3f6184 !important;">
+				<h3 style="color: #fff !important;font-weight:bold;">PRIVACY POLICY</h3>
+				<p style="color: #eeefff !important;"><%=@privacy_policy_top_text%></p>
+			</div>
+			<div class="panel-body"><!-- start panel body -->
+				<ul class="list-group">
+					<%@policy_headings.each do |policy_heading|%>
+						<li class="list-group-item">
+							<h5><strong><%=policy_heading.heading%></strong></h5>
+							<ul style="list-style:none;">
+								<%policy_heading.policy_sub_hedings.all.each do |pshs|%>
+									<%pshs.sub_heading.split("*").each do |psh|%>
+										<li><h5><%=psh%></h5></li>
+									<%end%>
+									<br>
+								<%end%>
+							</ul>
+						</li>
+						<hr>
+					<%end%>
+				</ul>
+			</div><!-- end panel body -->
 		</div>
 	</div>
-	<%if ct==2%>
-		<%ct=1%>
-	<%else%>	
-		<%ct=2%>
-	<%end%>
-	<br>
-<%end%>	
 </div>
+
 <script type="text/javascript">
 	
 	$('.panel-body').hide().slideDown();

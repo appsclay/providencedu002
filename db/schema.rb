@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517082212) do
+ActiveRecord::Schema.define(version: 20160518101046) do
 
   create_table "about_pages", force: :cascade do |t|
     t.string   "img_file_name"
@@ -257,6 +257,12 @@ ActiveRecord::Schema.define(version: 20160517082212) do
     t.string   "position_name"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "privacy_policy_top_texts", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "requirement_categories", force: :cascade do |t|

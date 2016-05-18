@@ -1,10 +1,23 @@
 <div style="width:88%;margin:0 auto;padding:2%;padding-left:5%;">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Script:</strong>
-  <%= @term_page.script %>
-</p>
+
+ 
+  <%@term_page.script.split("*").each do |kk| %>
+  		<%ct=true%>
+  		<%kk.split("!").each do |k|%>
+  			<%if ct%>
+  				<h5><strong><%=k%></strong></h5>
+  			<%else%>
+  				<%k.split("#").each do |chotak|%>
+  						<h5><%=chotak%></h5>
+  					<%end%>  				
+  			<%end%>
+  			<%ct=false%>
+  		<%end%>
+  		<br>
+  <%end%>
+
 
 <%= link_to 'Edit', edit_term_page_path(@term_page) %> |
 <%= link_to 'Back', term_pages_path %>
