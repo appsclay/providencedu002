@@ -14,22 +14,16 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require chosen-jquery
 //= require owl.carousel
+//= require chosen-jquery
 //= require bootstrap-material-design
 //= require turbolinks
 //= require_tree .
 
 $(document).on('ready page:load', function () {
-   $("#owl-example").owlCarousel({
-   	 autoplay: true,
-  autoplayTimeout: 2000,
- 
-      items : 4,
-      itemsDesktop : [1199,3],
-      itemsDesktopSmall : [979,3]
 
-   });
+  
+
   $("#owl-demo2").owlCarousel({
   	autoplay: true,
   	autoplayTimeout: 2000,

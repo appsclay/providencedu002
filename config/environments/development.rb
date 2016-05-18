@@ -41,7 +41,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
 
-
+config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: 'providence001',
+    access_key_id: 'AKIAJUJM2EBZ32MMSYIA',
+    secret_access_key: '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',
+    s3_region: 'Oregon'
+  }
+}
   
 end
 
