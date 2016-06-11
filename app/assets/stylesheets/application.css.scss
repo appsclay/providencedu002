@@ -143,3 +143,49 @@
 }
 
 #clickopen:hover{cursor: pointer; cursor: hand;}
+
+.main_s_link{
+  font-size:30px;
+  color: #fff !important;
+  transition: all 0.4s ease !important;
+  font-family: 'Nunito',sans-serif;
+
+}
+.main_s_link:hover{
+  background-color:transparent;
+  text-decoration:none;
+  color: #72cfd9 !important;
+
+}
+
+.main_s_para{
+  display:inline-center;margin-top:2%; height:140px;
+  p{color:#fff !important;
+  font-family: 'Nunito',sans-serif;
+  }
+}
+
+.main_s_h2{font-family: 'Nunito',sans-serif;color:#fff;text-align:center;margin-top:13%;}
+.main_s_h3{font-family: 'Nunito',sans-serif;color:#fff;text-align:center;margin-top:4%;}
+
+.main_s_img{
+  
+border:2px solid #fff !important;
+padding: 0px !important;
+  img{
+    width:288px;
+  }
+}
+
+/*.main_s_imga{transition: all 0.4s ease !important;}
+.main_s_imga:hover{background-color:blue !important;}*/
+
+.main_main{
+  margin:0 auto;text-align:center; 
+  display:none;
+}
+
+.bw {
+    -webkit-filter: grayscale(100%) ; /* Chrome, Safari, Opera */
+    filter: grayscale(100%) ;
+}

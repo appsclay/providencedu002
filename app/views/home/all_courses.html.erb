@@ -7,13 +7,13 @@
 	<%mct=1%>
 	<%Course.all.order("position ASC").each do |course|%>
 
-		<%if ct==1%>
+		
 		<div class="row" style="margin-top:16px;">
-		<%end%>
+		
 
-			<div class="col-md-6">
+			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-danger">
-					<div class="panel-heading panel-hover">
+					<div class="panel-heading panel-hover ppanel-courses">
 						<h3><%=course.name.upcase%> &nbsp;<i class="fa fa-chevron-down cc" aria-hidden="true"></i></h3> 
 					</div>
 					<div class="panel-body hide-body">
@@ -204,12 +204,13 @@
 					</div>
 				</div>
 			</div>	
+			
 		
-		<%if ct==2%>	
+			
 		</div>
-		<%end%>
-
-		<%if ct==1%><%ct=2%><%else%><%ct=1%><%end%>
+		
+		<br>
+		
 		<%mct+=1%>
 		
 

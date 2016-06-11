@@ -1,66 +1,202 @@
-<section class="screenshots" id="screenshots">
-			<div class="container-fluid">
-				<div class="row" style="text-align:center;">
-					<h1 style="font-family: 'Nunito',sans-serif;display:inline-block;color:#3f6184;border-bottom:2px solid #fff;">
-						<%=CorporateTrainerHeading.last.heading.upcase%>
-					</h1>
-				</div><br>
-				<div class="row">
-					<div class="owl-carousel grid">
-						<%CorporateTrainer.all.each do |ct|%>
-						<div class="item">
-							<figure style="position:relative;">
-								<img src="<%=ct.img(:large)%>" alt="<%=ct.name%>" >
-								<div>
-								<h3 class="ctname" style="background-color:rgba(82,82,82,0.6) !important;font-size:24px !important;padding:2px;"><%=ct.name%></h3>
-								<h4 class="ctdesi" >(<%=ct.designation.upcase%>)</h4>
-								</div>
-								<figcaption>
-								<div class="caption-content">
-									<a href="/all_trainers" class="single_image nos" >
-										<i class="fa fa-question" aria-hidden="true"></i><br>
-										<p>Know More</p>
-									</a>
-								</div>
-								</figcaption>
-							</figure>
+
+<%cot=CorporateTrainer.take(6)%>
+
+<section class="row" style="background-color:#3f6184;">
+	<div class="com-md-10 col-md-offset-1">
+		<div class="container-fluid">
+			
+				<!-- <div class="texture-overlay"></div> -->
+				<div class="col-md-5">
+					
+					<div id="m_a"class="main_main">
+						<h2 class="main_s_h2"><%=cot[0].name.upcase%></h2>
+						<h3 class="main_s_h3">(<%=cot[0].designation%>)</h3>
+						<div style="text-align:center;">
+							<div style="display:inline-center;">
+								<a class="main_s_link" href="<%=cot[0].twitter%>">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>&nbsp;&nbsp;
+	        					<a class="main_s_link" href="<%=cot[0].linkedin%>">
+	        						<i class="fa fa-linkedin" aria-hidden="true"></i>
+	        					</a>
+        					</div>
+        					
+        					<div style="display:inline-center;margin-top:8%;">
+        						<a href="/all_trainers" class="learn-btn animated fadeInUp">Know More</a> 
+        					</div>
 						</div>
-						<%end%>
+					</div>
+					<!-- 2 -->
+					<div id="m_b" class="main_main">
+						<h2 class="main_s_h2"><%=cot[1].name.upcase%></h2>
+						<h3 class="main_s_h3">(<%=cot[1].designation%>)</h3>
+						<div style="text-align:center;">
+							<div style="display:inline-center;">
+								<a class="main_s_link" href="<%=cot[1].twitter%>">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>&nbsp;&nbsp;
+	        					<a class="main_s_link" href="<%=cot[1].linkedin%>">
+	        						<i class="fa fa-linkedin" aria-hidden="true"></i>
+	        					</a>
+        					</div>
+        					
+        					<div style="display:inline-center;margin-top:8%;">
+        						<a href="/all_trainers" class="learn-btn animated fadeInUp">Know More</a> 
+        					</div>
+						</div>
+					</div>
+					<!-- 3 -->
+					<div id="m_c" class="main_main">
+						<h2 class="main_s_h2"><%=cot[2].name.upcase%></h2>
+						<h3 class="main_s_h3">(<%=cot[2].designation%>)</h3>
+						<div style="text-align:center;">
+							<div style="display:inline-center;">
+								<a class="main_s_link" href="<%=cot[2].twitter%>">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>&nbsp;&nbsp;
+	        					<a class="main_s_link" href="<%=cot[2].linkedin%>">
+	        						<i class="fa fa-linkedin" aria-hidden="true"></i>
+	        					</a>
+        					</div>
+        					
+        					<div style="display:inline-center;margin-top:8%;">
+        						<a href="/all_trainers" class="learn-btn animated fadeInUp">Know More</a> 
+        					</div>
+						</div>
+					</div>
+					<!-- 4 -->
+					<div id="m_d" class="main_main">
+						<h2 class="main_s_h2"><%=cot[3].name.upcase%></h2>
+						<h3 class="main_s_h3">(<%=cot[3].designation%>)</h3>
+						<div style="text-align:center;">
+							<div style="display:inline-center;">
+								<a class="main_s_link" href="<%=cot[3].twitter%>">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>&nbsp;&nbsp;
+	        					<a class="main_s_link" href="<%=cot[3].linkedin%>">
+	        						<i class="fa fa-linkedin" aria-hidden="true"></i>
+	        					</a>
+        					</div>
+        					
+        					<div style="display:inline-center;margin-top:8%;">
+        						<a href="/all_trainers" class="learn-btn animated fadeInUp">Know More</a> 
+        					</div>
+						</div>
+					</div>
+					<!-- 5 -->
+					<div id="m_e" class="main_main">
+						<h2 class="main_s_h2">Some One Name</h2>
+						<h3 class="main_s_h3">(Designation)</h3>
+						<div style="text-align:center;">
+							<div style="display:inline-center;">
+								<a class="main_s_link" href="#">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>&nbsp;&nbsp;
+	        					<a class="main_s_link" href="#">
+	        						<i class="fa fa-linkedin" aria-hidden="true"></i>
+	        					</a>
+        					</div>
+        					
+        					<div style="display:inline-center;margin-top:8%;">
+        						<a href="/all_trainers" class="learn-btn animated fadeInUp">Know More</a> 
+        					</div>
+						</div>
+					</div>
+					<!-- 6 -->
+					<div id="m_f" class="main_main">
+						<h2 class="main_s_h2">Some One Name</h2>
+						<h3 class="main_s_h3">(Designation)</h3>
+						<div style="text-align:center;">
+							<div style="display:inline-center;">
+								<a class="main_s_link" href="#">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+								</a>&nbsp;&nbsp;
+	        					<a class="main_s_link" href="#">
+	        						<i class="fa fa-linkedin" aria-hidden="true"></i>
+	        					</a>
+        					</div>
+        					<div class="main_s_para">
+        						<p>lllll lll djjd dndm djjhd djdnddk<p>
+        						<p>Brown fox jumped over the roof</p>
+        					</div>
+        					<div style="display:inline-center;margin-top:8%;">
+        						<a href="/all_trainers" class="learn-btn animated fadeInUp">Know More</a> 
+        					</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>
 
-		
-
-
-
+				<div class="col-md-7">
+					<div class="row">
+						<div id="ma" class="col-sm-4 main_s_img main_s_imga">
+							<%=image_tag cot[0].img(:large), alt: cot[0].name, class: "bw" %>
+						</div>
+						<div id="mb" class="col-sm-4 main_s_img main_s_imgb">
+							<%=image_tag cot[1].img(:large), alt: cot[1].name, class: "bw" %>
+						</div>
+						<div id="mc "class="col-sm-4 main_s_img main_s_imgc">
+							<%=image_tag cot[2].img(:large), alt: cot[2].name, class: "bw" %>
+						</div>
+					</div>
+					<div class="row">
+						<div id="md" class="col-sm-4 main_s_img main_s_imgd">
+							<%=image_tag cot[3].img(:large), alt: cot[3].name, class: "bw" %>
+						</div>
+						<div id="me" class="col-sm-4 main_s_img main_s_imge">
+							<%#=image_tag cot[4].img(:large), alt: cot[4].name, class: "bw" %>
+						</div>
+						<div id ="mf" class="col-sm-4 main_s_img main_s_imgf">
+							<%#=image_tag cot[5].img(:large), alt: cot[5].name, class: "bw" %>
+						</div>
+					</div>
+				</div>
 			
-<!--   <div id="ppad" class="owl-carousel"> -->
-
+		</div>
+	</div>
+	<div class="col-md-1"></div>
+</section>
 <%=javascript_tag do%>
-	$(".youtube-media").on("click", function(e) {
-		var jWindow = $(window).width();
-		if (jWindow <= 768) {
-			return;
-		}
-		$.fancybox({
-			href: this.href,
-			padding: 4,
-			type: "iframe",
-			'href': this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
-		});
-		return false;
-	});
+	
+	$('#ma').hover(function(){
+		$('#ma img').removeClass("bw");
+		$('#m_a').fadeIn();
+	},
+		function(){$('#m_a').hide();$('#ma img').addClass("bw");}
+	);
 
-});
+	$('#mb').hover(function(){
+		$('#mb img').removeClass("bw");
+		$('#m_b').fadeIn();
+	},
+		function(){$('#m_b').hide();$('#mb img').addClass("bw");}
+	);
 
-$(document).ready(function() {
-	$("a.single_image").fancybox({
-		padding: 4,
-	});
-});
+	$('#mc').hover(function(){
+		$('#mc img').removeClass("bw");
+		$('#m_c').fadeIn();
+	},
+		function(){$('#m_c').hide();$('#mc img').addClass("bw");}
+	);
 
+	$('#md').hover(function(){
+		$('#md img').removeClass("bw");
+		$('#m_d').fadeIn();
+	},
+		function(){$('#m_d').hide();$('#md img').addClass("bw");}
+	);
 
+	$('#me').hover(function(){
+		$('#me img').removeClass("bw");
+		$('#m_e').fadeIn();
+	},
+		function(){$('#m_e').hide();$('#me img').addClass("bw");}
+	);
 
-<%end%>	
+	$('#mf').hover(function(){
+		$('#mf img').removeClass("bw");
+		$('#m_f').fadeIn();
+	},
+		function(){$('#m_f').hide();$('#mf img').addClass("bw");}
+	);
+
+	<%end%>
